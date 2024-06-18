@@ -13,6 +13,7 @@ namespace DungTran31.Core
         public AudioClip background;
         public AudioClip death;
         public AudioClip score;
+        public AudioClip pressed;
 
         private void Start()
         {

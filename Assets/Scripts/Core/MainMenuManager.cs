@@ -7,13 +7,15 @@ namespace DungTran31.Core
     {
         [SerializeField] private GameObject helpText;
         [SerializeField] private GameObject options;
-        [SerializeField] private GameObject settingScreen;
+        [SerializeField] private GameObject settingPanel;
+        [SerializeField] private GameObject aboutPanel;
         [SerializeField] private GameObject[] cubes;
 
         private void Awake()
         {
             SetActiveAllCubes(true);
-            settingScreen.SetActive(false);
+            settingPanel.SetActive(false);
+            aboutPanel.SetActive(false);
             helpText.SetActive(true);
             options.SetActive(false);
         }
@@ -29,15 +31,38 @@ namespace DungTran31.Core
         public void ShowSetting()
         {
             SetActiveAllCubes(false);
-            settingScreen.SetActive(true);
+            settingPanel.SetActive(true);
             AudioManager.Instance.musicSource.Pause();
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
         }
 
         public void HideSetting()
         {
             SetActiveAllCubes(true);
-            settingScreen.SetActive(false);
+            settingPanel.SetActive(false);
             AudioManager.Instance.musicSource.UnPause();
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
+        }
+
+        public void ShowAbout()
+        {
+            SetActiveAllCubes(false);
+            aboutPanel.SetActive(true);
+            AudioManager.Instance.musicSource.Pause();
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
+        }
+
+        public void HideAbout()
+        {
+            SetActiveAllCubes(true);
+            aboutPanel.SetActive(false);
+            AudioManager.Instance.musicSource.UnPause();
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
+        }
+
+        public void OpenLink(string link)
+        {
+            Application.OpenURL(link);
         }
 
         private void ShowOption()

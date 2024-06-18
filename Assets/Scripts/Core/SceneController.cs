@@ -13,6 +13,7 @@ namespace DungTran31.Core
         public void NextLevel()
         {
             StartCoroutine(LoadLevel());
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
         }
 
         IEnumerator LoadLevel()
