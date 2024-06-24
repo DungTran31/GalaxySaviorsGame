@@ -13,14 +13,22 @@ namespace DungTran31.Core
         public void NextLevel()
         {
             StartCoroutine(LoadLevel());
-            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
+            if(AudioManager.Instance != null)
+                AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
         }
 
         IEnumerator LoadLevel()
         {
-            transition.SetTrigger(Start);
-            yield return new WaitForSeconds(1);
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+            if (transition != null)
+            {
+                transition.SetTrigger(Start);
+                yield return new WaitForSeconds(1); // Adjust the wait time as needed
+                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else
+            {
+                Debug.LogWarning("Transition Animator is not assigned in the SceneController.");
+            }
         }
     }
 }

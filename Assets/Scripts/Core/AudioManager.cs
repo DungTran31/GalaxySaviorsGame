@@ -3,7 +3,7 @@ using DungTran31.Utilities;
 
 namespace DungTran31.Core
 {
-    public class AudioManager : Singleton<AudioManager>
+    public class AudioManager : SingletonPersistent<AudioManager>
     {
         [Header("Audio Source")]
         [SerializeField] public AudioSource musicSource;
