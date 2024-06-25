@@ -1,5 +1,6 @@
 using UnityEngine;
 using DungTran31.Utilities;
+using DungTran31.GamePlay.Player;
 
 namespace DungTran31
 {

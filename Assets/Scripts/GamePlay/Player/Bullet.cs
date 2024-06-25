@@ -13,6 +13,7 @@ namespace DungTran31.GamePlay.Player
         [SerializeField] private float lifeTime = 3f;
 
         private Rigidbody2D rb;
+
         private void OnEnable()
         {
             // Ensure the Rigidbody2D component is assigned
@@ -37,8 +38,8 @@ namespace DungTran31.GamePlay.Player
         {
             if (collision.tag == "Enemy")
             {
-                Debug.Log("Enemy hit");
                 this.gameObject.SetActive(false);
+                collision.gameObject.SetActive(false);
             }
         }
     }
