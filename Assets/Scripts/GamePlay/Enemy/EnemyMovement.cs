@@ -26,6 +26,7 @@ namespace DungTran31.GamePlay.Enemy
         {
             if(target != null)
                 AwarePlayerDistance();
+            PreventEnemyGoingOffScreen();
         }
 
         private void AwarePlayerDistance()
@@ -74,6 +75,22 @@ namespace DungTran31.GamePlay.Enemy
                 targetDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
                 changeDirectionCooldown = Random.Range(1f, 5f);
             }
+        }
+
+        private void PreventEnemyGoingOffScreen()
+        {
+            // Define the boundaries of the rectangle
+            float minX = -48f; // Minimum X coordinate
+            float maxX = 48f;  // Maximum X coordinate
+            float minY = -34.5f; // Minimum Y coordinate
+            float maxY = 34.5f;  // Maximum Y coordinate
+
+            // Clamp the player's position within the defined boundaries
+            float clampedX = Mathf.Clamp(transform.position.x, minX, maxX);
+            float clampedY = Mathf.Clamp(transform.position.y, minY, maxY);
+
+            // Update the player's position to the clamped position
+            transform.position = new Vector2(clampedX, clampedY);
         }
     }
 }

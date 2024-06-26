@@ -1,5 +1,6 @@
 using UnityEngine;
 using DungTran31.Utilities;
+using UnityEngine.SceneManagement;
 
 namespace DungTran31.Core
 {
@@ -24,6 +25,18 @@ namespace DungTran31.Core
         public void PlaySfx(AudioClip clip)
         {
             sfxSource.PlayOneShot(clip);
+        }
+
+        private void Update()
+        {
+            if (SceneManager.GetActiveScene().name.StartsWith("PreLevel"))
+            {
+                musicSource.Pause();
+            }
+            else
+            {
+                musicSource.UnPause();
+            }
         }
     }
 }
