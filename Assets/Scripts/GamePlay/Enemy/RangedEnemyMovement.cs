@@ -2,17 +2,18 @@ using UnityEngine;
 
 namespace DungTran31.GamePlay.Enemy
 {
-    public class EnemyMovement : MonoBehaviour
+    public class RangedEnemyMovement : MonoBehaviour
     {
         [SerializeField] private float speed = 5f;
         [SerializeField] private float playerAwarenessDistance = 10f; 
         private Rigidbody2D rb;
+        [SerializeField] private float distanceToStop = 5f;
 
         private Transform target;
         private bool awareOfPlayer;
         private float changeDirectionCooldown;
-        public Vector2 direction;
-        public Vector2 targetDirection;
+        private Vector2 direction;
+        private Vector2 targetDirection;
 
         private void Awake()
         {
@@ -52,7 +53,15 @@ namespace DungTran31.GamePlay.Enemy
 
         private void SetVelocity()
         {
-            rb.velocity = targetDirection * speed;
+            float distance = Vector2.Distance(transform.position, target.position);
+            if(distance >= distanceToStop)
+            {
+                rb.velocity = targetDirection * speed;
+            }    
+            else
+            {
+                rb.velocity = Vector2.zero;
+            }
         }
 
         private void UpdateTargetDirection()

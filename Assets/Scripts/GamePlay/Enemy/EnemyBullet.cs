@@ -1,16 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-namespace DungTran31.GamePlay.Player
+namespace DungTran31.GamePlay.Enemy
 {
-    public class Bullet : MonoBehaviour
+    public class EnemyBullet : MonoBehaviour
     {
         [SerializeField] private float damage;
         [Range(1, 50)]
-        [SerializeField] private float speed = 20f;
+        [SerializeField] private float speed = 15f;
         [Range(1, 10)]
-        [SerializeField] private float lifeTime = 1f;
-        [SerializeField] private GameObject blood;
+        [SerializeField] private float lifeTime = 2f;
 
 
         private Rigidbody2D rb;
@@ -32,16 +31,15 @@ namespace DungTran31.GamePlay.Player
 
         private void FixedUpdate()
         {
-            rb.velocity = transform.right * speed;
+            rb.velocity = transform.up * speed;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.tag == "Enemy")
+            if (collision.tag == "Player")
             {
                 this.gameObject.SetActive(false);
                 collision.gameObject.SetActive(false);
-                Instantiate(blood, collision.transform.position, Quaternion.identity);
             }
             if (collision.tag == "Border")
             {

@@ -31,8 +31,9 @@ namespace DungTran31.GamePlay.Enemy
         {
             if (collision.gameObject.CompareTag("Player") && !hasCollided)
             {
-                print("Player hit");
+                collision.gameObject.GetComponent<HealthSystem>().Die(true);
                 Destroy(collision.gameObject);
+
                 target = null;
                 hasCollided = true; // Set the flag to true after processing the collision
             }

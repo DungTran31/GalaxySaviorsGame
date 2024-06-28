@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 3840349681893632876}
   - component: {fileID: 8151212638297682551}
   m_Layer: 0
-  m_Name: PoisonBullet
-  m_TagString: Enemy
+  m_Name: IceBullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   damage: 0
   speed: 25
   lifeTime: 1
+  blood: {fileID: 6525560416825447839, guid: 5c60b8c7c5604ec47a5cd1c2b7066902, type: 3}
 --- !u!95 &3840349681893632876
 Animator:
   serializedVersion: 5
@@ -183,7 +184,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.25848192, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -194,5 +195,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0625, y: 0.140625}
+  m_Size: {x: 0.54553616, y: 0.140625}
   m_EdgeRadius: 0

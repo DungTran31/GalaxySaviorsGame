@@ -5,7 +5,7 @@ namespace DungTran31.GamePlay.Enemy
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private float spawnRate = 1f;
+        [SerializeField] private float spawnRate = 2f;
         [SerializeField] private GameObject[] _enemyPrefabs;
         [SerializeField] private bool canSpawn = true;
         [SerializeField] private int maxEnemies = 10;
@@ -33,6 +33,10 @@ namespace DungTran31.GamePlay.Enemy
                 else if (index == 1)
                 {
                     enemyTag = "enemy2";
+                } 
+                else if (index == 2)
+                {
+                    enemyTag = "rangedEnemy";
                 }
                 float randomX = Random.Range(-10f, 10f);
                 float randomY = Random.Range(-10f, 10f);
