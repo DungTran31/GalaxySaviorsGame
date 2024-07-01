@@ -521,9 +521,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14eef589315f4d488c3d59c67a7155a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 100
   bloodEffect: {fileID: 6525560416825447839, guid: 5c60b8c7c5604ec47a5cd1c2b7066902, type: 3}
   floatingHealthBar: {fileID: 7530104145887199394}
+  floatingTextPrefab: {fileID: 3162044731848583576, guid: fe82445335032f944b0bcfc823b07262, type: 3}
 --- !u!1 &7271291454932230158
 GameObject:
   m_ObjectHideFlags: 0

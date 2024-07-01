@@ -7,7 +7,7 @@ namespace DungTran31.GamePlay.Player
     public class PlayerHealth : MonoBehaviour
     {
         [Header("Health")]
-        [SerializeField] private float maxHealth = 3;
+        [SerializeField] private float maxHealth = 400;
         [SerializeField] private GameObject deathEffect;
         public float currentHealth { get; private set; }
 

@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc20068119aaee42bdfabfdc5a58581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 400
   deathEffect: {fileID: 652696773238104938, guid: 9dc7d974086de214eb47c55f3defde72, type: 3}
   iFrameDuration: 2
   numberOfFlashes: 3

@@ -11,12 +11,12 @@ namespace DungTran31.UI
 
         private void Start()
         {
-            totalHealthBar.fillAmount = playerHealth.currentHealth / 10;
+            totalHealthBar.fillAmount = playerHealth.currentHealth / 1000;
         }
 
         private void Update()
         {
-            currentHealthBar.fillAmount = playerHealth.currentHealth / 10;
+            currentHealthBar.fillAmount = playerHealth.currentHealth / 1000;
         }
     }
 }

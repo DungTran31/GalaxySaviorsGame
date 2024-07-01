@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Border
   - EnemyBullet
+  - PlayerHead
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - Foreground
   - Player
   - Minimap
-  - 
-  - 
+  - Enemy
+  - EnemyBullet
   - 
   - 
   - 

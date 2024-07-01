@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DungTran31.Utilities;
+
 namespace DungTran31.Core
 {
     // This script acts as a single point for all other scripts to get
