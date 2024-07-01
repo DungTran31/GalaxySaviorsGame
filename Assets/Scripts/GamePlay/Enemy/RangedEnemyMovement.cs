@@ -53,12 +53,20 @@ namespace DungTran31.GamePlay.Enemy
 
         private void SetVelocity()
         {
-            float distance = Vector2.Distance(transform.position, target.position);
-            if(distance >= distanceToStop)
+
+            if (target != null) // Check if the target exists
             {
-                rb.velocity = targetDirection * speed;
-            }    
-            else
+                float distance = Vector2.Distance(transform.position, target.position);
+                if (distance >= distanceToStop)
+                {
+                    rb.velocity = targetDirection * speed;
+                }
+                else
+                {
+                    rb.velocity = Vector2.zero;
+                }
+            }
+            else // If the target doesn't exist, stop moving
             {
                 rb.velocity = Vector2.zero;
             }

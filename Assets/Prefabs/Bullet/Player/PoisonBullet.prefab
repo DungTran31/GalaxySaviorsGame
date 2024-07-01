@@ -127,10 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df7b33a42bd4d34e838854315bb06a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   speed: 25
   lifeTime: 1
-  blood: {fileID: 6525560416825447839, guid: 5c60b8c7c5604ec47a5cd1c2b7066902, type: 3}
 --- !u!95 &3840349681893632876
 Animator:
   serializedVersion: 5

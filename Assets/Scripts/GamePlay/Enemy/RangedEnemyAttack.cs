@@ -5,6 +5,7 @@ namespace DungTran31.GamePlay.Enemy
 {
     public class RangedEnemyAttack : MonoBehaviour
     {
+        [SerializeField] private GameObject deathEffect;
         [SerializeField] private Transform firingPoint;
         [SerializeField] private float distanceToShoot = 10f;
         [SerializeField] private float fireRate = 0.5f;
@@ -80,7 +81,7 @@ namespace DungTran31.GamePlay.Enemy
         {
             if (collision.gameObject.CompareTag("Player") && !hasCollided)
             {
-                collision.gameObject.GetComponent<HealthSystem>().Die(true);
+                Instantiate(deathEffect, target.position, Quaternion.identity);
                 Destroy(collision.gameObject);
 
                 target = null;

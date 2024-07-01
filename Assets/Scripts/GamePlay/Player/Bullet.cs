@@ -10,7 +10,6 @@ namespace DungTran31.GamePlay.Player
         [SerializeField] private float speed = 20f;
         [Range(1, 10)]
         [SerializeField] private float lifeTime = 1f;
-        [SerializeField] private GameObject blood;
 
 
         private Rigidbody2D rb;
@@ -39,9 +38,8 @@ namespace DungTran31.GamePlay.Player
         {
             if (collision.tag == "Enemy")
             {
+                collision.GetComponent<Enemy.EnemyHealth>().TakeDamage(damage);
                 this.gameObject.SetActive(false);
-                collision.gameObject.SetActive(false);
-                Instantiate(blood, collision.transform.position, Quaternion.identity);
             }
             if (collision.tag == "Border")
             {

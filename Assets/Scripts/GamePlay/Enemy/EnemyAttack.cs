@@ -4,6 +4,7 @@ namespace DungTran31.GamePlay.Enemy
 {
     public class EnemyAttack : MonoBehaviour
     {
+        [SerializeField] private GameObject deathEffect;
         private Transform target;
         private bool hasCollided = false; // Add a flag to check if collision has been processed to ensure only happens once
 
@@ -31,7 +32,7 @@ namespace DungTran31.GamePlay.Enemy
         {
             if (collision.gameObject.CompareTag("Player") && !hasCollided)
             {
-                collision.gameObject.GetComponent<HealthSystem>().Die(true);
+                Instantiate(deathEffect, target.position, Quaternion.identity);
                 Destroy(collision.gameObject);
 
                 target = null;

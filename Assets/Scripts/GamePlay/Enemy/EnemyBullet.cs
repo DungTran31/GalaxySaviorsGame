@@ -5,7 +5,7 @@ namespace DungTran31.GamePlay.Enemy
 {
     public class EnemyBullet : MonoBehaviour
     {
-        [SerializeField] private float damage;
+        [SerializeField] private float damage = 1f;
         [Range(1, 50)]
         [SerializeField] private float speed = 15f;
         [Range(1, 10)]
@@ -38,8 +38,8 @@ namespace DungTran31.GamePlay.Enemy
         {
             if (collision.tag == "Player")
             {
+                collision.GetComponent<Player.PlayerHealth>().TakeDamage(damage);
                 this.gameObject.SetActive(false);
-                collision.gameObject.SetActive(false);
             }
             if (collision.tag == "Border")
             {
