@@ -14,10 +14,13 @@ namespace DungTran31.GamePlay.Player
 
         private Rigidbody2D rb;
 
+        private void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+
         private void OnEnable()
         {
-            // Ensure the Rigidbody2D component is assigned
-            if (rb == null) rb = GetComponent<Rigidbody2D>();
             // Restart the coroutine each time the bullet is activated
             StopAllCoroutines(); // Stop any existing coroutines to avoid duplicates
             StartCoroutine(ReturnToPoolAfterDelay());
@@ -41,7 +44,7 @@ namespace DungTran31.GamePlay.Player
                 collision.GetComponent<Enemy.EnemyHealth>().TakeIceDamage(damage);
                 this.gameObject.SetActive(false);
             }
-            if (collision.tag == "Border")
+            else if (collision.tag == "Border")
             {
                 this.gameObject.SetActive(false);
             }
