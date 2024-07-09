@@ -14,6 +14,7 @@ namespace DungTran31.GamePlay.Player
         [Header("iFrames")]
         [SerializeField] private float iFrameDuration = 2f;
         [SerializeField] private int numberOfFlashes = 3;
+        [SerializeField] private bool isInvulnerable = false;
         private SpriteRenderer spriteRenderer;
 
         private void Start()
@@ -25,6 +26,7 @@ namespace DungTran31.GamePlay.Player
 
         public void TakeDamage(float amount)
         {
+            if (isInvulnerable) return;
             currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
             if (currentHealth <= 0)
             {
@@ -53,6 +55,7 @@ namespace DungTran31.GamePlay.Player
             Physics2D.IgnoreLayerCollision(gameObject.layer, 10, true);
             // Ignore collisions with bullets
             Physics2D.IgnoreLayerCollision(gameObject.layer, 11, true);
+            isInvulnerable = true;
 
             for (int i = 0; i < numberOfFlashes; i++)
             {
@@ -66,6 +69,7 @@ namespace DungTran31.GamePlay.Player
             Physics2D.IgnoreLayerCollision(gameObject.layer, 10, false);
             // Re-enable collisions with bullets
             Physics2D.IgnoreLayerCollision(gameObject.layer, 11, false);
+            isInvulnerable = false;
         }
     }
 }

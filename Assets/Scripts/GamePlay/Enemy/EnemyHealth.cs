@@ -1,4 +1,7 @@
 using DungTran31.UI;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DungTran31.GamePlay.Enemy
@@ -8,18 +11,55 @@ namespace DungTran31.GamePlay.Enemy
         [Header("Health")]
         [SerializeField] private float maxHealth = 2f;
         [SerializeField] private GameObject bloodEffect;
-        [SerializeField] FloatingHealthBar floatingHealthBar;
+        [SerializeField] private FloatingHealthBar floatingHealthBar;
         [SerializeField] private GameObject floatingTextPrefab;
 
+        [Header("Status Effects")]
+        [SerializeField] private float poisonDuration = 5f;
+        [SerializeField] private float poisonTickTime = 1f;
+        [SerializeField] private float freezeDuration = 3f;
+
+        private bool isPoisoned = false;
+        private bool isFrozen = false;
+
         public float currentHealth { get; private set; }
+        public static event Action OnEnemyDeath;
+
         private void OnEnable()
         {
             currentHealth = maxHealth;
-            floatingHealthBar.UpdateHealthBar(currentHealth, maxHealth);
             floatingHealthBar = GetComponentInChildren<FloatingHealthBar>();
+            floatingHealthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
 
-        public void TakeDamage(float amount)
+        public void TakeFireDamage(float amount)
+        {
+            ApplyDamage(amount);
+        }
+
+        public void TakeIceDamage(float amount)
+        {
+            if (!isFrozen) // Prevent stacking freeze effects
+            {
+                StartCoroutine(FreezeEnemy(freezeDuration));
+            }
+            ApplyDamage(amount);
+        }
+
+        public void TakePoisonDamage(float amount)
+        {
+            if (!isPoisoned) // Prevent stacking poison effects
+            {
+                StartCoroutine(PoisonEnemy(amount, poisonDuration));
+            }
+        }
+
+        public void TakeBlackDamage(float amount)
+        {
+            ApplyDamage(amount);
+        }
+
+        private void ApplyDamage(float amount)
         {
             ShowDamage(amount.ToString());
             currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
@@ -27,8 +67,94 @@ namespace DungTran31.GamePlay.Enemy
             if (currentHealth <= 0)
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.identity);
-                this.gameObject.SetActive(false);
+                OnEnemyDeath?.Invoke();
+                gameObject.SetActive(false);
             }
+        }
+
+        private IEnumerator FreezeEnemy(float duration)
+        {
+            isFrozen = true;
+            // Initialize variables to store original speeds to restore later
+            float originalSpeed = 0f;
+            float originalRangedSpeed = 0f;
+
+            // Attempt to get the movement components
+            var movementComponent = GetComponent<EnemyMovement>();
+            var movementRangedComponent = GetComponent<RangedEnemyMovement>();
+            var attackRangedComponent = GetComponent<RangedEnemyAttack>();
+
+            // Check if the components exist before trying to access their properties
+            if (movementComponent != null)
+            {
+                originalSpeed = movementComponent.speed;
+                movementComponent.speed = 0; // Disable movement
+            }
+
+            if (movementRangedComponent != null)
+            {
+                originalRangedSpeed = movementRangedComponent.speed;
+                movementRangedComponent.speed = 0; // Disable movement
+            }
+
+            if (attackRangedComponent != null) {
+                attackRangedComponent.enabled = false; // Disable attack
+            }
+
+            // Optionally, change the enemy's appearance to indicate it's frozen
+            var spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = Color.blue; // Change color to blue to indicate freezing
+            }
+
+            yield return new WaitForSeconds(duration);
+
+            // Restore the enemy's state after the freeze duration
+            if (movementComponent != null)
+            {
+                movementComponent.speed = originalSpeed; // Re-enable movement
+            }
+
+            if (movementRangedComponent != null)
+            {
+                movementRangedComponent.speed = originalRangedSpeed; // Re-enable movement
+            }
+
+            if (attackRangedComponent != null)
+            {
+                attackRangedComponent.enabled = true; // Re-enable attack
+            }
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = Color.white; // Restore the original color
+            }
+            isFrozen = false;
+        }
+
+
+
+        private IEnumerator PoisonEnemy(float damage, float duration)
+        {
+            isPoisoned = true;
+            float elapsed = 0;
+            var spriteRenderer = GetComponent<SpriteRenderer>();
+            while (elapsed < duration)
+            {
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.color = Color.green; // Change color to green to indicate poisoning
+                }
+                ApplyDamage(damage);
+                yield return new WaitForSeconds(poisonTickTime);
+                elapsed += poisonTickTime;
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.color = Color.white; // Restore the original color
+                }
+            }
+            isPoisoned = false;
         }
 
         public void ShowDamage(string text)

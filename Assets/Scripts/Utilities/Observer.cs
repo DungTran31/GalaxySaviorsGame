@@ -1,103 +1,91 @@
 using System;
-using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
+using UnityEngine.Events;
+
+#if UNITY_EDITOR
+using UnityEditor.Events;
+#endif
 
 namespace DungTran31.Utilities
 {
-    public class Observer : Singleton<Observer>
+    [Serializable]
+    public class Observer<T>
     {
-        private readonly Dictionary<string, List<Action>> _listeners = new Dictionary<string, List<Action>>();
-        private readonly Dictionary<string, List<Action<object>>> _listenersWithParam = new Dictionary<string, List<Action<object>>>();
-        public void RegisterObserver(string key, Action action)
-        {
-            List<Action> actions;
-            if (_listeners.TryGetValue(key, out var listener))
-            {
-                actions = listener;
-            }
-            else
-            {
-                actions = new List<Action>();
-                _listeners.Add(key, actions);
-            }
+        [SerializeField] T value;
+        [SerializeField] UnityEvent<T> onValueChanged;
 
-            actions.Add(action);
-        }
-      
-        public void RegisterObserver(string key, Action<object> action)
+        public T Value
         {
-            List<Action<object>> actions;
-            if (_listenersWithParam.TryGetValue(key, out var listener))
-            {
-                actions = listener;
-            }
-            else
-            {
-                actions = new List<Action<object>>();
-                _listenersWithParam.Add(key, actions);
-            }
-
-            actions.Add(action);
-        }
-        
-        public void NotifyObservers(string key, object param)
-        {
-            if (_listenersWithParam.TryGetValue(key, out var listener))
-            {
-                foreach (Action<object> a in listener)
-                {
-                    try
-                    {
-                        a?.Invoke(param);
-                    }
-                    catch (Exception e)
-                    {
-                        Debug.LogError(e);
-                    }
-                }
-            }
-            else
-            {
-                Debug.LogErrorFormat("listener {0} not exist", key);
-            }
+            get => value;
+            set => Set(value);
         }
 
-        public void NotifyObservers(string key)
+        public static implicit operator T(Observer<T> observer) => observer.value;
+
+        public Observer(T value, UnityAction<T> callback = null)
         {
-            if (_listeners.TryGetValue(key, value: out var listener))
-            {
-                foreach (Action a in listener)
-                {
-                    try
-                    {
-                        a?.Invoke();
-                    }
-                    catch (Exception e)
-                    {
-                        Debug.LogError(e);
-                    }
-                }
-            }
-            else
-            {
-                Debug.LogErrorFormat("listener {0} not exist", key);
-            }
-        }
-        
-        public void RemoveObserver(string key, Action<object> action)
-        {
-            if (_listenersWithParam.TryGetValue(key, out var listener))
-            {
-                listener.Remove(action);
-            }
+            this.value = value;
+            onValueChanged = new UnityEvent<T>();
+            if(callback != null) onValueChanged.AddListener(callback);
+            
         }
 
-        public void RemoveObserver(string key, Action action)
+        public void Set(T value)
         {
-            if (_listeners.TryGetValue(key, out var listener))
-            {
-                listener.Remove(action);
-            }
+            if(Equals(this.value, value)) return;
+            this.value = value;
+            Invoke();
+        }
+
+        public void Invoke()
+        {
+            Debug.Log($"Invoking {onValueChanged.GetPersistentEventCount()} listeners");
+            onValueChanged.Invoke(value);
+        }
+
+        public void AddListener(UnityAction<T> callback)
+        {
+            if (callback == null) return;
+            if(onValueChanged == null) onValueChanged = new UnityEvent<T>();
+
+#if UNITY_EDITOR
+            UnityEventTools.AddPersistentListener(onValueChanged, callback);
+#else
+            onValueChanged.AddListener(callback);
+#endif
+        }
+
+        public void RemoveListener(UnityAction<T> callback)
+        {
+            if (callback == null) return;
+            if (onValueChanged == null) return;
+
+#if UNITY_EDITOR
+            UnityEventTools.RemovePersistentListener(onValueChanged, callback);
+#else
+            onValueChanged.RemoveListener(callback);
+#endif
+        }
+
+        public void RemoveAllListeners()
+        {
+            if (onValueChanged == null) return;
+
+#if UNITY_EDITOR
+            FieldInfo field = typeof(UnityEventBase).GetField("m_PersistentCalls", BindingFlags.NonPublic | BindingFlags.Instance);
+            object value = field.GetValue(onValueChanged);
+            value.GetType().GetMethod("Clear").Invoke(value, null);
+#else
+            onValueChanged.RemoveAllListeners();
+#endif
+        }
+
+        public void Dispose()
+        {
+            RemoveAllListeners();
+            onValueChanged = null;
+            value = default;
         }
     }
 }

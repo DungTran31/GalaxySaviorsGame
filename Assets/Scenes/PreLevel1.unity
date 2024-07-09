@@ -948,7 +948,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 804808879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee8c0beb4f95096489f29c868b02b3be, type: 3}
+  m_Script: {fileID: 11500000, guid: 085cd9d7d713d1e4082962d55eb61e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.04
@@ -963,11 +963,10 @@ MonoBehaviour:
   - {fileID: 1034048124}
   - {fileID: 530240511}
   - {fileID: 458133004}
-  defaultAudioInfo: {fileID: 11400000, guid: 0dbc7f89c0ad8e74d9ffc6fab681b99a, type: 2}
+  defaultAudioInfo: {fileID: 11400000, guid: 7d7e5609604c74d4c9eaf35dd556b3e4, type: 2}
   audioInfos:
   - {fileID: 11400000, guid: b2496eb6591da35409dc76fe11b4acaf, type: 2}
   - {fileID: 11400000, guid: 4e9fc48d4ed63624982f871009777757, type: 2}
-  - {fileID: 11400000, guid: 20a62170e0d7d5c47bf273950e380197, type: 2}
   makePredictable: 1
 --- !u!1 &869316984
 GameObject:
@@ -1382,7 +1381,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1094980969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba8936a7574a6049af81bcc5eea4143, type: 3}
+  m_Script: {fileID: 11500000, guid: aa0bf4a2b53a1ba40b9203c52be42c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: 32bbcf6194a57d34fb84846e9040c12f, type: 3}

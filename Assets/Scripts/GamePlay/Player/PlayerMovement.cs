@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace DungTran31.GamePlay.Player
@@ -17,11 +18,13 @@ namespace DungTran31.GamePlay.Player
         private float dashTime;
         private int dashDirection;
         private float dashCooldownTimer = 0;
+        private float originalMoveSpeed; // To store the original move speed
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
             _camera = Camera.main;
+            originalMoveSpeed = moveSpeed; // Store the original move speed
         }
 
         private void Update()
@@ -75,6 +78,18 @@ namespace DungTran31.GamePlay.Player
 
             // Always move towards the cursor position
             transform.position = Vector2.MoveTowards(transform.position, _cursorPos, moveSpeed * Time.deltaTime);
+        }
+
+        public void SpeedUp()
+        {
+            StartCoroutine(SpeedUpCoroutine());
+        }
+
+        private IEnumerator SpeedUpCoroutine()
+        {
+            moveSpeed *= 3; // Double the move speed
+            yield return new WaitForSeconds(3); // Wait for 3 seconds
+            moveSpeed = originalMoveSpeed; // Revert to the original move speed
         }
 
         /*

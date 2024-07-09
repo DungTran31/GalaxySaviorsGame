@@ -4,7 +4,7 @@ namespace DungTran31.GamePlay.Enemy
 {
     public class EnemyMovement : MonoBehaviour
     {
-        [SerializeField] private float speed = 5f;
+        [SerializeField] public float speed = 5f;
         [SerializeField] private float playerAwarenessDistance = 10f; 
         private Rigidbody2D rb;
 

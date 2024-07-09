@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3ca877a3e973b42ab192e347df2dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectiblePrefab: {fileID: 7864879658609832678, guid: 097187c297f2bc84ebe082c36b3decd7, type: 3}
+  collectiblePrefabs:
+  - {fileID: 7864879658609832678, guid: 097187c297f2bc84ebe082c36b3decd7, type: 3}
+  - {fileID: 7864879658609832678, guid: cbb144ebb0efe4244a789e442ac56752, type: 3}
   spawnRate: 3
   spawnAreaMin: {x: -45, y: -45}
   spawnAreaMax: {x: 45, y: 45}
