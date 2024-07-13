@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7776940264484198829}
-  - component: {fileID: 7702106871892845845}
+  - component: {fileID: 7272395274125761704}
   m_Layer: 0
   m_Name: CollectibleSpawner
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7702106871892845845
+--- !u!114 &7272395274125761704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5610046999800773968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3ca877a3e973b42ab192e347df2dbf, type: 3}
+  m_Script: {fileID: 11500000, guid: 1af441ce43f2e8b4982dd6c749a7605c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   collectiblePrefabs:
-  - {fileID: 7864879658609832678, guid: 097187c297f2bc84ebe082c36b3decd7, type: 3}
   - {fileID: 7864879658609832678, guid: cbb144ebb0efe4244a789e442ac56752, type: 3}
-  spawnRate: 3
-  spawnAreaMin: {x: -45, y: -45}
-  spawnAreaMax: {x: 45, y: 45}
+  - {fileID: 7864879658609832678, guid: 097187c297f2bc84ebe082c36b3decd7, type: 3}
+  spawnRate: 5
+  spawnAreaMin: {x: -10, y: -10}
+  spawnAreaMax: {x: 10, y: 10}

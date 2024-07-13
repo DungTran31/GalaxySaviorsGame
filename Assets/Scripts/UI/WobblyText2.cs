@@ -25,7 +25,7 @@ namespace DungTran31.UI
             for (int index = s.IndexOf(' '); index > -1; index = s.IndexOf(' ', index + 1))
             {
                 _wordLengths.Add(index - _wordIndexes[_wordIndexes.Count - 1]);
-                    _wordIndexes.Add(index + 1);
+                _wordIndexes.Add(index + 1);
             }
             _wordLengths.Add(s.Length - _wordIndexes[_wordIndexes.Count - 1]);
         }

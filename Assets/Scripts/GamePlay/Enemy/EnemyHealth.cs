@@ -1,7 +1,6 @@
 using DungTran31.UI;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace DungTran31.GamePlay.Enemy
@@ -21,8 +20,8 @@ namespace DungTran31.GamePlay.Enemy
 
         private bool isPoisoned = false;
         private bool isFrozen = false;
+        private float currentHealth;
 
-        public float currentHealth { get; private set; }
         public static event Action OnEnemyDeath;
 
         private void OnEnable()

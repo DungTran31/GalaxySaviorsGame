@@ -18,13 +18,5 @@ namespace DungTran31.Dialogues
                 Debug.LogError("PlayerCount instance not found in the scene.");
             }
         }
-
-        private void Update()
-        {
-            if (playerCount.killCount == 0)
-            {
-                DialogueManager.Instance.EnterDialogueMode(inkJSON);
-            }
-        }
     }
 }

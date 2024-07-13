@@ -6,6 +6,7 @@ namespace DungTran31.Core
     public class MainMenuManager : MonoBehaviour
     {
         [SerializeField] private GameObject helpText;
+        [SerializeField] private GameObject OText;
         [SerializeField] private GameObject options;
         [SerializeField] private GameObject settingPanel;
         [SerializeField] private GameObject aboutPanel;
@@ -17,6 +18,7 @@ namespace DungTran31.Core
             settingPanel.SetActive(false);
             aboutPanel.SetActive(false);
             helpText.SetActive(true);
+            OText.SetActive(true);
             options.SetActive(false);
         }
 
@@ -32,6 +34,7 @@ namespace DungTran31.Core
         {
             SetActiveAllCubes(false);
             settingPanel.SetActive(true);
+            OText.SetActive(false);
             AudioManager.Instance.musicSource.Pause();
             AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
         }
@@ -40,6 +43,7 @@ namespace DungTran31.Core
         {
             SetActiveAllCubes(true);
             settingPanel.SetActive(false);
+            OText.SetActive(true);
             AudioManager.Instance.musicSource.UnPause();
             AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
         }
@@ -48,6 +52,7 @@ namespace DungTran31.Core
         {
             SetActiveAllCubes(false);
             aboutPanel.SetActive(true);
+            OText.SetActive(false);
             AudioManager.Instance.musicSource.Pause();
             AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
         }
@@ -56,6 +61,7 @@ namespace DungTran31.Core
         {
             SetActiveAllCubes(true);
             aboutPanel.SetActive(false);
+            OText.SetActive(true);
             AudioManager.Instance.musicSource.UnPause();
             AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
         }

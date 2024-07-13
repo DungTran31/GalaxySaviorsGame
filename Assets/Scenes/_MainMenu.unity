@@ -822,10 +822,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2024611164}
   - {fileID: 137887670}
   - {fileID: 338484608}
   - {fileID: 2024412598}
-  - {fileID: 2024611164}
   m_Father: {fileID: 1598600565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1391,8 +1391,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281663488
+  m_fontColor: {r: 0.00022702849, g: 0, b: 0.20754719, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1409,8 +1409,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.7
-  m_fontSizeBase: 64.7
+  m_fontSize: 85
+  m_fontSizeBase: 85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1475,8 +1475,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -407}
-  m_SizeDelta: {x: 700, y: 50}
+  m_AnchoredPosition: {x: 0, y: -404}
+  m_SizeDelta: {x: 883.49, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &360553830
 MonoBehaviour:
@@ -5840,7 +5840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1615389476}
   sfxSource: {fileID: 522220119}
-  background: {fileID: 8300000, guid: 02670b4206fe516448b7f104dba7259d, type: 3}
+  background: {fileID: 8300000, guid: 4e97a8e645044ec4493c34b70c9f44ef, type: 3}
   death: {fileID: 0}
   score: {fileID: 0}
   pressed: {fileID: 8300000, guid: 19d8c23c224935e49b11835007566625, type: 3}
@@ -6077,8 +6077,8 @@ RectTransform:
   - {fileID: 201150016}
   - {fileID: 360553829}
   - {fileID: 358186214}
-  - {fileID: 225818287}
   - {fileID: 1196552611}
+  - {fileID: 225818287}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6099,6 +6099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helpText: {fileID: 360553825}
+  OText: {fileID: 2024611163}
   options: {fileID: 358186213}
   settingPanel: {fileID: 225818284}
   aboutPanel: {fileID: 1196552608}
@@ -6991,7 +6992,7 @@ Transform:
   m_GameObject: {fileID: 2024611163}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 92.6, y: -52, z: 1.8}
+  m_LocalPosition: {x: 92.6, y: -52, z: 0}
   m_LocalScale: {x: 142.84, y: 201.6317, z: 108.01698}
   m_ConstrainProportionsScale: 0
   m_Children: []

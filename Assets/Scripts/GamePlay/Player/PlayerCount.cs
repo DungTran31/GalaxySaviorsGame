@@ -7,26 +7,18 @@ namespace DungTran31.GamePlay.Player
     public class PlayerCount : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI killRemainingCountText;
-        [SerializeField] private int targetKillCountText;
+        [SerializeField] private int targetKillCount;
         public int killCount { get; private set; }
 
         private void Start()
         {
             killCount = 0;
-            print("Kill count: " + killCount);
-            print("Target kill count: " + targetKillCountText);
             UpdateKillCountUI(); // Initialize UI on start
         }
 
-        private void OnEnable()
-        {
-            EnemyHealth.OnEnemyDeath += IncrementKillCount;
-        }
+        private void OnEnable() => EnemyHealth.OnEnemyDeath += IncrementKillCount;
 
-        private void OnDisable()
-        {
-            EnemyHealth.OnEnemyDeath -= IncrementKillCount;
-        }
+        private void OnDisable() => EnemyHealth.OnEnemyDeath -= IncrementKillCount;
 
         private void IncrementKillCount()
         {
@@ -39,7 +31,7 @@ namespace DungTran31.GamePlay.Player
         {
             if (killRemainingCountText != null)
             {
-                int remainingKillCount = targetKillCountText - killCount;
+                int remainingKillCount = targetKillCount - killCount;
                 print("Remaining kill count: " + remainingKillCount);
                 killRemainingCountText.text = remainingKillCount.ToString();
             }
