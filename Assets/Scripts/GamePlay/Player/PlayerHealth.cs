@@ -7,8 +7,8 @@ namespace DungTran31.GamePlay.Player
     public class PlayerHealth : MonoBehaviour
     {
         [Header("Health")]
-        [SerializeField] private float maxHealth = 400;
         [SerializeField] private GameObject deathEffect;
+        public float maxHealth { get; private set; } = 400;
         public float currentHealth { get; private set; }
 
         [Header("iFrames")]
@@ -20,7 +20,6 @@ namespace DungTran31.GamePlay.Player
         private void Start()
         {
             spriteRenderer = GameObject.FindGameObjectWithTag("PlayerHead").GetComponent<SpriteRenderer>();
-
             currentHealth = maxHealth;
         }
 

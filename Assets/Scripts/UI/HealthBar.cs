@@ -11,7 +11,7 @@ namespace DungTran31.UI
 
         private void Start()
         {
-            totalHealthBar.fillAmount = playerHealth.currentHealth / 1000;
+            totalHealthBar.fillAmount = playerHealth.maxHealth / 1000;
         }
 
         private void Update()

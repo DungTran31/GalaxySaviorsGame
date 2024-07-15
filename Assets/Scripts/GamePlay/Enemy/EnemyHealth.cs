@@ -9,9 +9,10 @@ namespace DungTran31.GamePlay.Enemy
     {
         [Header("Health")]
         [SerializeField] private float maxHealth = 2f;
-        [SerializeField] private GameObject bloodEffect;
         [SerializeField] private FloatingHealthBar floatingHealthBar;
         [SerializeField] private GameObject floatingTextPrefab;
+        [SerializeField] private GameObject bloodEffect;
+        [SerializeField] private GameObject bloodSplash;
 
         [Header("Status Effects")]
         [SerializeField] private float poisonDuration = 5f;
@@ -22,7 +23,17 @@ namespace DungTran31.GamePlay.Enemy
         private bool isFrozen = false;
         private float currentHealth;
 
-        public static event Action OnEnemyDeath;
+        public struct EnemyDeathEventArgs
+        {
+            public Vector3 Position;
+
+            public EnemyDeathEventArgs(Vector3 position)
+            {
+                Position = position;
+            }
+        }
+
+        public static event Action<EnemyDeathEventArgs> OnEnemyDeath;
 
         private void OnEnable()
         {
@@ -66,7 +77,8 @@ namespace DungTran31.GamePlay.Enemy
             if (currentHealth <= 0)
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.identity);
-                OnEnemyDeath?.Invoke();
+                Instantiate(bloodSplash, transform.position, Quaternion.identity);
+                OnEnemyDeath?.Invoke(new EnemyDeathEventArgs(transform.position));
                 gameObject.SetActive(false);
             }
         }

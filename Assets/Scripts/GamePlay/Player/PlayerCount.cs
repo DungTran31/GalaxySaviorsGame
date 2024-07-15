@@ -20,7 +20,7 @@ namespace DungTran31.GamePlay.Player
 
         private void OnDisable() => EnemyHealth.OnEnemyDeath -= IncrementKillCount;
 
-        private void IncrementKillCount()
+        private void IncrementKillCount(EnemyHealth.EnemyDeathEventArgs args)
         {
             killCount++; // Increment the kill count
             UpdateKillCountUI(); // Update the UI

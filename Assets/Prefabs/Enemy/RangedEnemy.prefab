@@ -525,6 +525,10 @@ MonoBehaviour:
   bloodEffect: {fileID: 6525560416825447839, guid: 5c60b8c7c5604ec47a5cd1c2b7066902, type: 3}
   floatingHealthBar: {fileID: 7530104145887199394}
   floatingTextPrefab: {fileID: 3162044731848583576, guid: fe82445335032f944b0bcfc823b07262, type: 3}
+  bloodSplash: {fileID: 459294908763368975, guid: 0a35a0d4bd1afb743a4536de694b3f10, type: 3}
+  poisonDuration: 5
+  poisonTickTime: 1
+  freezeDuration: 3
 --- !u!1 &7271291454932230158
 GameObject:
   m_ObjectHideFlags: 0

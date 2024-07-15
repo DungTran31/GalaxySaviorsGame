@@ -10,6 +10,8 @@ namespace DungTran31.GamePlay.Player
         [SerializeField] private float dashSpeed = 50f;
         [SerializeField] private float startDashTime = 0.1f;
         [SerializeField] private float dashCooldown = 1f; 
+        [SerializeField] private TrailRenderer trailRenderer;
+        [SerializeField] private GameObject dashEffect;
 
         private Vector2 _direction;
         private Vector2 _cursorPos; 
@@ -44,6 +46,7 @@ namespace DungTran31.GamePlay.Player
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldownTimer <= 0)
             {
+                Instantiate(dashEffect, transform.position, Quaternion.identity);
                 dashDirection = 1;
                 dashTime = startDashTime; // Reset dashTime
                 dashCooldownTimer = dashCooldown; // Reset the cooldown timer
@@ -54,11 +57,19 @@ namespace DungTran31.GamePlay.Player
                 if (dashTime > 0)
                 {
                     _rb.velocity = transform.right * dashSpeed;
+                    if (trailRenderer != null)
+                    {
+                        trailRenderer.emitting = true; // Enable the trail renderer
+                    }
                     dashTime -= Time.deltaTime;
                 }
                 else
                 {
                     dashDirection = 0;
+                    if (trailRenderer != null)
+                    {
+                        trailRenderer.emitting = false; // Disable the trail renderer
+                    }
                     _rb.velocity = Vector2.zero; // Reset velocity after dash
                 }
             }
