@@ -39,12 +39,20 @@ namespace DungTran31.GamePlay.Player
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.tag == "Enemy")
+            if (collision.CompareTag("Enemy"))
             {
-                collision.GetComponent<Enemy.EnemyHealth>().TakeFireDamage(damage);
+                if (collision.TryGetComponent<Enemy.EnemyHealth>(out Enemy.EnemyHealth enemyHealth))
+                {
+                    enemyHealth.TakeBlackDamage(damage);
+                }
+                else if (collision.TryGetComponent<Enemy.BossHealth>(out Enemy.BossHealth bossHealth))
+                {
+                    bossHealth.TakeBlackDamage(damage);
+                }
+
                 this.gameObject.SetActive(false);
             }
-            else if (collision.tag == "Border")
+            else if (collision.CompareTag("Border"))
             {
                 this.gameObject.SetActive(false);
             }

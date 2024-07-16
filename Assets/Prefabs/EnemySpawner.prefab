@@ -51,5 +51,6 @@ MonoBehaviour:
   - {fileID: 1366539882291354084, guid: 6b2957cc686d27742b4e0609a315fd79, type: 3}
   - {fileID: 1366539882291354084, guid: af03e2b009b8f8749a62e0cc9f31934b, type: 3}
   - {fileID: 5561002580234321768, guid: 13e81066f91a0744d8299373b817aec9, type: 3}
+  _bossPrefab: {fileID: 1366539882291354084, guid: 67f599626da0f5741987ff4d0eee7775, type: 3}
   canSpawn: 1
   maxEnemies: 50

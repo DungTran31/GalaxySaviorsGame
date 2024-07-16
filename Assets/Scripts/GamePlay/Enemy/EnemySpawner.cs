@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using DungTran31.Utilities;
 using DungTran31.Utilities.Extensions;
+using DungTran31.UI;
+using DungTran31.GamePlay.Player;
 
 namespace DungTran31.GamePlay.Enemy
 {
@@ -14,15 +16,14 @@ namespace DungTran31.GamePlay.Enemy
         [SerializeField] private float minSpawnRate = 1f;
         [SerializeField] private GameObject[] _enemyPrefabs;
         [SerializeField] private bool canSpawn = true;
-        [SerializeField] private int maxEnemies = 10;
+        [SerializeField] private int maxEnemies = 15;
         private int currentEnemyCount = 0;
-
-        
 
         private void Start()
         {
             StartCoroutine(Spawner());
         }
+
 
         private IEnumerator Spawner()
         {
@@ -35,22 +36,15 @@ namespace DungTran31.GamePlay.Enemy
 
                 int index = Random.Range(0, _enemyPrefabs.Length);
                 string enemyTag = "";
-                if (index == 0)
+                switch (index)
                 {
-                    enemyTag = "enemy";
-                }
-                else if (index == 1)
-                {
-                    enemyTag = "enemy2";
-                }
-                else if (index == 2)
-                {
-                    enemyTag = "rangedEnemy";
+                    case 0: enemyTag = "enemy"; break;
+                    case 1: enemyTag = "enemy2"; break;
+                    case 2: enemyTag = "rangedEnemy"; break;
                 }
 
                 float randomX = Random.Range(-10f, 10f);
                 float randomY = Random.Range(-10f, 10f);
-                //ObjectPooler.Instance.SpawnFromPool(enemyTag, transform.position + new Vector3(randomX, randomY, 0), Quaternion.identity);
                 ObjectPooler.Instance.SpawnFromPool(enemyTag, transform.position.Add(randomX, randomY, 0), Quaternion.identity);
                 currentEnemyCount++;
 

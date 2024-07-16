@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  playerAwarenessDistance: 20
+  playerAwarenessDistance: 10
   direction: {x: 0, y: 0}
   targetDirection: {x: 0, y: 0}
 --- !u!114 &7800274044362162768
@@ -191,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1ad5d957e59f54da0d5d2e064d5c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathEffect: {fileID: 652696773238104938, guid: 9dc7d974086de214eb47c55f3defde72, type: 3}
 --- !u!114 &-8289706053287190552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,9 +204,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
-  bloodEffect: {fileID: 6525560416825447839, guid: 5c60b8c7c5604ec47a5cd1c2b7066902, type: 3}
   floatingHealthBar: {fileID: 2614929557504734747}
   floatingTextPrefab: {fileID: 3162044731848583576, guid: fe82445335032f944b0bcfc823b07262, type: 3}
+  bloodEffect: {fileID: 6525560416825447839, guid: b9b0b8953810e9b4c98d8595b96352a0, type: 3}
   bloodSplash: {fileID: 459294908763368975, guid: 0a35a0d4bd1afb743a4536de694b3f10, type: 3}
   poisonDuration: 5
   poisonTickTime: 1

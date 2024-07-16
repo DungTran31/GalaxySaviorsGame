@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace DungTran31.GamePlay.Enemy
 {
-    public class EnemyHealth : MonoBehaviour
+    public class BossHealth : MonoBehaviour
     {
         [Header("Health")]
         [SerializeField] private float maxHealth = 2f;
-        [SerializeField] private FloatingHealthBar floatingHealthBar;
+        [SerializeField] private BossHealthBar bossHealthBar;
         [SerializeField] private GameObject floatingTextPrefab;
         [SerializeField] private GameObject bloodEffect;
         [SerializeField] private GameObject bloodSplash;
@@ -26,7 +26,7 @@ namespace DungTran31.GamePlay.Enemy
         public float GetCurrentHealth()
         {
             return currentHealth;
-        }  
+        }
 
         public struct EnemyDeathEventArgs
         {
@@ -43,8 +43,8 @@ namespace DungTran31.GamePlay.Enemy
         private void OnEnable()
         {
             currentHealth = maxHealth;
-            floatingHealthBar = GetComponentInChildren<FloatingHealthBar>();
-            floatingHealthBar.UpdateHealthBar(currentHealth, maxHealth);
+            bossHealthBar = GetComponentInChildren<BossHealthBar>();
+            bossHealthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
 
         public void TakeFireDamage(float amount)
@@ -78,7 +78,7 @@ namespace DungTran31.GamePlay.Enemy
         {
             ShowDamage(amount.ToString());
             currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
-            floatingHealthBar.UpdateHealthBar(currentHealth, maxHealth);
+            bossHealthBar.UpdateHealthBar(currentHealth, maxHealth);
             if (currentHealth <= 0)
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.identity);
@@ -113,7 +113,8 @@ namespace DungTran31.GamePlay.Enemy
                 movementRangedComponent.speed = 0; // Disable movement
             }
 
-            if (attackRangedComponent != null) {
+            if (attackRangedComponent != null)
+            {
                 attackRangedComponent.enabled = false; // Disable attack
             }
 

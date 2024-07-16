@@ -1,4 +1,5 @@
 using DungTran31.GamePlay.Enemy;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,11 +9,15 @@ namespace DungTran31.GamePlay.Player
     {
         [SerializeField] private TextMeshProUGUI killRemainingCountText;
         [SerializeField] private int targetKillCount;
-        public int killCount { get; private set; }
+        [SerializeField] private GameObject bossPrefab;
+        private bool bossSpawned = false;
+        public static event Action OnTargetKillCountReached;
+        public int KillCount { get; private set; }
 
         private void Start()
         {
-            killCount = 0;
+            bossSpawned = false;
+            KillCount = 0;
             UpdateKillCountUI(); // Initialize UI on start
         }
 
@@ -22,7 +27,7 @@ namespace DungTran31.GamePlay.Player
 
         private void IncrementKillCount(EnemyHealth.EnemyDeathEventArgs args)
         {
-            killCount++; // Increment the kill count
+            KillCount++; // Increment the kill count
             UpdateKillCountUI(); // Update the UI
         }
 
@@ -31,8 +36,19 @@ namespace DungTran31.GamePlay.Player
         {
             if (killRemainingCountText != null)
             {
-                int remainingKillCount = targetKillCount - killCount;
+                int remainingKillCount = targetKillCount - KillCount;
                 print("Remaining kill count: " + remainingKillCount);
+                if(remainingKillCount <= 0)
+                {
+                    remainingKillCount = 0;
+                    if (!bossSpawned)
+                    {
+                        // Spawn the boss when the player reaches the target kill count
+                        Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
+                        OnTargetKillCountReached?.Invoke();
+                    }
+                    bossSpawned = true;
+                }
                 killRemainingCountText.text = remainingKillCount.ToString();
             }
         }

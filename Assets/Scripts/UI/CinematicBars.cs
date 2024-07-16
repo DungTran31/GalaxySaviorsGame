@@ -1,3 +1,4 @@
+using DungTran31.GamePlay.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ namespace DungTran31.UI
 
         private void Awake()
         {
-            GameObject gameObject = new GameObject("topBar", typeof(Image));
+            GameObject gameObject = new("topBar", typeof(Image));
             gameObject.transform.SetParent(transform, false);
             gameObject.GetComponent<Image>().color = Color.black;
             topBar = gameObject.GetComponent<RectTransform>();
@@ -29,18 +30,28 @@ namespace DungTran31.UI
             bottomBar.sizeDelta = new Vector2(0, 0);
         }
 
+        private void OnEnable()
+        {
+            topBar.gameObject.SetActive(true);
+            bottomBar.gameObject.SetActive(true);
+            PlayerCount.OnTargetKillCountReached += ControlCinematicBars;
+        }
+
+        private void OnDisable()
+        {
+            topBar.gameObject.SetActive(false);
+            bottomBar.gameObject.SetActive(false);
+            PlayerCount.OnTargetKillCountReached -= ControlCinematicBars;
+        }
+
+        private void ControlCinematicBars()
+        {
+            Show(100, 1);
+            Hide(1f);
+        }
+
         private void Update()
         {
-            //if(Input.GetKeyDown(KeyCode.C))
-            //{
-            //    Show(300f, 0.3f);
-            //}
-
-            //if(Input.GetKeyDown(KeyCode.V))
-            //{
-            //    Hide(0.3f);
-            //}
-
             if (isActive)
             {
                 Vector2 sizeDelta = topBar.sizeDelta;
