@@ -8,8 +8,8 @@ namespace DungTran31.GamePlay.Player
     {
         [Header("Health")]
         [SerializeField] private GameObject deathEffect;
-        public float maxHealth { get; private set; } = 400;
-        public float currentHealth { get; private set; }
+        public float MaxHealth { get; private set; } = 400;
+        public float CurrentHealth { get; private set; }
 
         [Header("iFrames")]
         [SerializeField] private float iFrameDuration = 2f;
@@ -20,14 +20,14 @@ namespace DungTran31.GamePlay.Player
         private void Start()
         {
             spriteRenderer = GameObject.FindGameObjectWithTag("PlayerHead").GetComponent<SpriteRenderer>();
-            currentHealth = maxHealth;
+            CurrentHealth = MaxHealth;
         }
 
         public void TakeDamage(float amount)
         {
             if (isInvulnerable) return;
-            currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
-            if (currentHealth <= 0)
+            CurrentHealth = Mathf.Clamp(CurrentHealth - amount, 0, MaxHealth);
+            if (CurrentHealth <= 0)
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
@@ -40,11 +40,11 @@ namespace DungTran31.GamePlay.Player
 
         public void Heal(float amount)
         {
-            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, MaxHealth);
 
-            if (currentHealth > maxHealth)
+            if (CurrentHealth > MaxHealth)
             {
-                currentHealth = maxHealth;
+                CurrentHealth = MaxHealth;
             }
         }
 
