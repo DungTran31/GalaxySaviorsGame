@@ -193,6 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c59d05bc360b342a2711264c43bbc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  speed: 25
-  lifeTime: 1
+  playerBulletSO: {fileID: 11400000, guid: 54ae530644f761041bd6ae251fc33b13, type: 2}

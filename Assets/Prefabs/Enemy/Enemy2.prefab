@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9223d18a1abb94e45be89a8b2af33d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   playerAwarenessDistance: 10
   direction: {x: 0, y: 0}
   targetDirection: {x: 0, y: 0}
@@ -203,14 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14eef589315f4d488c3d59c67a7155a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
   floatingHealthBar: {fileID: 2614929557504734747}
-  floatingTextPrefab: {fileID: 3162044731848583576, guid: fe82445335032f944b0bcfc823b07262, type: 3}
-  bloodEffect: {fileID: 6525560416825447839, guid: b9b0b8953810e9b4c98d8595b96352a0, type: 3}
-  bloodSplash: {fileID: 459294908763368975, guid: 0a35a0d4bd1afb743a4536de694b3f10, type: 3}
-  poisonDuration: 5
-  poisonTickTime: 1
-  freezeDuration: 3
+  enemyHealthSO: {fileID: 11400000, guid: 7caa6d5e5321a424aa6de6bc479f3b9f, type: 2}
 --- !u!1 &1963499029221584288
 GameObject:
   m_ObjectHideFlags: 0

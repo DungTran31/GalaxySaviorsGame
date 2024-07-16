@@ -1,3 +1,4 @@
+using DungTran31.GamePlay.Player.SO;
 using System.Collections;
 using UnityEngine;
 
@@ -5,11 +6,7 @@ namespace DungTran31.GamePlay.Player
 {
     public class BlackBullet : MonoBehaviour
     {
-        [SerializeField] private float damage;
-        [Range(1, 50)]
-        [SerializeField] private float speed = 20f;
-        [Range(1, 10)]
-        [SerializeField] private float lifeTime = 1f;
+        [SerializeField] private PlayerBulletSO playerBulletSO;
 
         private Rigidbody2D rb;
 
@@ -26,13 +23,13 @@ namespace DungTran31.GamePlay.Player
 
         private IEnumerator ReturnToPoolAfterDelay()
         {
-            yield return new WaitForSeconds(lifeTime);
+            yield return new WaitForSeconds(playerBulletSO.LifeTime);
             this.gameObject.SetActive(false);
         }
 
         private void FixedUpdate()
         {
-            rb.velocity = transform.right * speed;
+            rb.velocity = transform.right * playerBulletSO.Speed;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -41,11 +38,11 @@ namespace DungTran31.GamePlay.Player
             {
                 if (collision.TryGetComponent<Enemy.EnemyHealth>(out Enemy.EnemyHealth enemyHealth))
                 {
-                    enemyHealth.TakeBlackDamage(damage);
+                    enemyHealth.TakeBlackDamage(playerBulletSO.Damage);
                 }
                 else if (collision.TryGetComponent<Enemy.BossHealth>(out Enemy.BossHealth bossHealth))
                 {
-                    bossHealth.TakeBlackDamage(damage);
+                    bossHealth.TakeBlackDamage(playerBulletSO.Damage);
                 }
                 this.gameObject.SetActive(false);
             }

@@ -1,3 +1,4 @@
+using DungTran31.GamePlay.Enemy.SO;
 using DungTran31.UI;
 using System;
 using System.Collections;
@@ -7,18 +8,8 @@ namespace DungTran31.GamePlay.Enemy
 {
     public class EnemyHealth : MonoBehaviour
     {
-        [Header("Health")]
-        [SerializeField] private float maxHealth = 2f;
         [SerializeField] private FloatingHealthBar floatingHealthBar;
-        [SerializeField] private GameObject floatingTextPrefab;
-        [SerializeField] private GameObject bloodEffect;
-        [SerializeField] private GameObject bloodSplash;
-
-        [Header("Status Effects")]
-        [SerializeField] private float poisonDuration = 5f;
-        [SerializeField] private float poisonTickTime = 1f;
-        [SerializeField] private float freezeDuration = 3f;
-
+        [SerializeField] private EnemyHealthSO enemyHealthSO;
         private bool isPoisoned = false;
         private bool isFrozen = false;
         private float currentHealth;
@@ -42,9 +33,9 @@ namespace DungTran31.GamePlay.Enemy
 
         private void OnEnable()
         {
-            currentHealth = maxHealth;
+            currentHealth = enemyHealthSO.MaxHealth;
             floatingHealthBar = GetComponentInChildren<FloatingHealthBar>();
-            floatingHealthBar.UpdateHealthBar(currentHealth, maxHealth);
+            floatingHealthBar.UpdateHealthBar(currentHealth, enemyHealthSO.MaxHealth);
         }
 
         public void TakeFireDamage(float amount)
@@ -56,7 +47,7 @@ namespace DungTran31.GamePlay.Enemy
         {
             if (!isFrozen) // Prevent stacking freeze effects
             {
-                StartCoroutine(FreezeEnemy(freezeDuration));
+                StartCoroutine(FreezeEnemy(enemyHealthSO.FreezeDuration));
             }
             ApplyDamage(amount);
         }
@@ -65,7 +56,7 @@ namespace DungTran31.GamePlay.Enemy
         {
             if (!isPoisoned) // Prevent stacking poison effects
             {
-                StartCoroutine(PoisonEnemy(amount, poisonDuration));
+                StartCoroutine(PoisonEnemy(amount, enemyHealthSO.PoisonDuration));
             }
         }
 
@@ -77,12 +68,12 @@ namespace DungTran31.GamePlay.Enemy
         private void ApplyDamage(float amount)
         {
             ShowDamage(amount.ToString());
-            currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
-            floatingHealthBar.UpdateHealthBar(currentHealth, maxHealth);
+            currentHealth = Mathf.Clamp(currentHealth - amount, 0, enemyHealthSO.MaxHealth);
+            floatingHealthBar.UpdateHealthBar(currentHealth, enemyHealthSO.MaxHealth);
             if (currentHealth <= 0)
             {
-                Instantiate(bloodEffect, transform.position, Quaternion.identity);
-                Instantiate(bloodSplash, transform.position, Quaternion.identity);
+                Instantiate(enemyHealthSO.BloodEffect, transform.position, Quaternion.identity);
+                Instantiate(enemyHealthSO.BloodSplash, transform.position, Quaternion.identity);
                 OnEnemyDeath?.Invoke(new EnemyDeathEventArgs(transform.position));
                 gameObject.SetActive(false);
             }
@@ -162,8 +153,8 @@ namespace DungTran31.GamePlay.Enemy
                     spriteRenderer.color = Color.green; // Change color to green to indicate poisoning
                 }
                 ApplyDamage(damage);
-                yield return new WaitForSeconds(poisonTickTime);
-                elapsed += poisonTickTime;
+                yield return new WaitForSeconds(enemyHealthSO.PoisonTickTime);
+                elapsed += enemyHealthSO.PoisonTickTime;
                 if (spriteRenderer != null)
                 {
                     spriteRenderer.color = Color.white; // Restore the original color
@@ -174,9 +165,9 @@ namespace DungTran31.GamePlay.Enemy
 
         public void ShowDamage(string text)
         {
-            if (floatingTextPrefab)
+            if (enemyHealthSO.FloatingTextPrefab)
             {
-                GameObject floatingText = Instantiate(floatingTextPrefab, transform.position, Quaternion.identity);
+                GameObject floatingText = Instantiate(enemyHealthSO.FloatingTextPrefab, transform.position, Quaternion.identity);
                 floatingText.GetComponentInChildren<TextMesh>().text = text;
             }
         }

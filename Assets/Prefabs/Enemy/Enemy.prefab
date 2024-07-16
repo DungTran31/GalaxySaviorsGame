@@ -305,14 +305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14eef589315f4d488c3d59c67a7155a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   floatingHealthBar: {fileID: 5790891217758996874}
-  floatingTextPrefab: {fileID: 3162044731848583576, guid: fe82445335032f944b0bcfc823b07262, type: 3}
-  bloodEffect: {fileID: 6525560416825447839, guid: b9b0b8953810e9b4c98d8595b96352a0, type: 3}
-  bloodSplash: {fileID: 459294908763368975, guid: 0a35a0d4bd1afb743a4536de694b3f10, type: 3}
-  poisonDuration: 5
-  poisonTickTime: 1
-  freezeDuration: 3
+  enemyHealthSO: {fileID: 11400000, guid: 1a3eca7b82f1f4a438e8bcdd5f8592ad, type: 2}
 --- !u!1 &2871621190226926855
 GameObject:
   m_ObjectHideFlags: 0

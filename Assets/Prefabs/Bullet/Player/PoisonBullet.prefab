@@ -148,9 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85defa337404c4f9d5d14d77914581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  speed: 25
-  lifeTime: 1
+  playerBulletSO: {fileID: 11400000, guid: 983cd8ccf8b7fab48b6db5115fbd0da1, type: 2}
 --- !u!61 &8151212638297682551
 BoxCollider2D:
   m_ObjectHideFlags: 0

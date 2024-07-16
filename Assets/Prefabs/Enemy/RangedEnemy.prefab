@@ -492,7 +492,7 @@ MonoBehaviour:
   deathEffect: {fileID: 652696773238104938, guid: 9dc7d974086de214eb47c55f3defde72, type: 3}
   firingPoint: {fileID: 3808557436156970759}
   distanceToShoot: 20
-  fireRate: 1
+  fireRate: 2
   _orbitRadius: 2
 --- !u!114 &1393871820325514795
 MonoBehaviour:
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  playerAwarenessDistance: 10
+  playerAwarenessDistance: 20
   distanceToStop: 10
 --- !u!114 &-3906622903128549390
 MonoBehaviour:
@@ -521,14 +521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14eef589315f4d488c3d59c67a7155a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   floatingHealthBar: {fileID: 7530104145887199394}
-  floatingTextPrefab: {fileID: 3162044731848583576, guid: fe82445335032f944b0bcfc823b07262, type: 3}
-  bloodEffect: {fileID: 6525560416825447839, guid: b9b0b8953810e9b4c98d8595b96352a0, type: 3}
-  bloodSplash: {fileID: 459294908763368975, guid: 0a35a0d4bd1afb743a4536de694b3f10, type: 3}
-  poisonDuration: 5
-  poisonTickTime: 1
-  freezeDuration: 3
+  enemyHealthSO: {fileID: 11400000, guid: 10f092dc61111c34ab7c94bcc69fac95, type: 2}
 --- !u!1 &7271291454932230158
 GameObject:
   m_ObjectHideFlags: 0
