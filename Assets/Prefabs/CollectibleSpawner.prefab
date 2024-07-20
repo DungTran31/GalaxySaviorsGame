@@ -47,6 +47,7 @@ MonoBehaviour:
   collectiblePrefabs:
   - {fileID: 7864879658609832678, guid: cbb144ebb0efe4244a789e442ac56752, type: 3}
   - {fileID: 7864879658609832678, guid: 097187c297f2bc84ebe082c36b3decd7, type: 3}
-  spawnRate: 5
   spawnAreaMin: {x: -10, y: -10}
   spawnAreaMax: {x: 10, y: 10}
+  spawnRate: 5
+  expCollectiblePrefab: {fileID: 8751452985611268792, guid: a0b325a5c492411439f25e32af2d2e67, type: 3}

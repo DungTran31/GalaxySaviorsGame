@@ -52,10 +52,7 @@ namespace DungTran31.Utilities
 
             IPool pooledObj = objectToSpawn.GetComponent<IPool>();
 
-            if (pooledObj != null)
-            {
-                pooledObj.OnObjectSpawn();
-            }
+            pooledObj?.OnObjectSpawn();
 
             poolDictionary[tag].Enqueue(objectToSpawn);
 

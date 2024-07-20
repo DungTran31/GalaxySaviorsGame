@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be9b0a7e491e804387b94361d86dd7e, type: 3}
   m_Name: FireBulletSO
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 0
-  <Speed>k__BackingField: 1
+  <Damage>k__BackingField: 10130
+  <Speed>k__BackingField: 25
   <LifeTime>k__BackingField: 1

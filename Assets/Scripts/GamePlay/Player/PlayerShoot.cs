@@ -10,23 +10,17 @@ namespace DungTran31.GamePlay.Player
         [Range(0.1f, 2f)]
         [SerializeField] private float fireRate = 0.5f;
 
-        private Color fireColor = new Color(247f / 255f, 118f / 255f, 34f / 255f); // 
-        private Color poisonColor = new Color(99f / 255f, 199f / 255f, 77f / 255f); // 
-        private Color iceColor = new Color(57f / 255f, 174f / 255f, 224f / 255f); // 
-        private Color blackColor = new Color(38f / 255f, 43f / 255f, 68f / 255f); // 
-
-
         private float fireTimer;
         // Define bullet types
         public enum BulletType { fire, poison, ice, black }
         private BulletType currentBulletType = BulletType.fire;
         private BulletTypeUI bulletTypeUI;
-        private Color[] bulletColors = new Color[]
+        private readonly Color[]  bulletColors = new Color[]
         {
-            new Color(247f / 255f, 118f / 255f, 34f / 255f), // fire #F77622
-            new Color(99f / 255f, 199f / 255f, 77f / 255f), // poison #63C74D
-            new Color(57f / 255f, 174f / 255f, 224f / 255f), // ice #39AEE0
-            new Color(38f / 255f, 43f / 255f, 68f / 255f) // black #262B44
+            new (247f / 255f, 118f / 255f, 34f / 255f), // fire #F77622
+            new (99f / 255f, 199f / 255f, 77f / 255f), // poison #63C74D
+            new (57f / 255f, 174f / 255f, 224f / 255f), // ice #39AEE0
+            new (38f / 255f, 43f / 255f, 68f / 255f) // black #262B44
         };
 
         private void Start()
@@ -37,6 +31,8 @@ namespace DungTran31.GamePlay.Player
 
         private void Update()
         {
+            if (Dialogues.DialogueManager.Instance.DialogueIsPlaying) return;
+
             if (Input.GetKeyDown(KeyCode.Space) && fireTimer <= 0f)
             {
                 Shoot();
@@ -63,7 +59,7 @@ namespace DungTran31.GamePlay.Player
         {
             // Use the current bullet type to determine which bullet to shoot
             string poolTag = currentBulletType.ToString().ToLower() + "Bullet"; // Assuming your pool tags are named accordingly
-            GameObject bullet = ObjectPooler.Instance.SpawnFromPool(poolTag, firingPoint.position, firingPoint.rotation);
+            ObjectPooler.Instance.SpawnFromPool(poolTag, firingPoint.position, firingPoint.rotation);
         }
 
         private void SwitchBulletType(bool forward)

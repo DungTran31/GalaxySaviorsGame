@@ -11,7 +11,6 @@ namespace DungTran31.GamePlay.Enemy
         [Range(1, 10)]
         [SerializeField] private float lifeTime = 2f;
 
-
         private Rigidbody2D rb;
 
         private void OnEnable()
@@ -36,12 +35,12 @@ namespace DungTran31.GamePlay.Enemy
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.tag == "Player")
+            if (collision.CompareTag("Player"))
             {
                 collision.GetComponent<Player.PlayerHealth>().TakeDamage(damage);
                 this.gameObject.SetActive(false);
             }
-            if (collision.tag == "Border")
+            else if (collision.CompareTag("Border"))
             {
                 this.gameObject.SetActive(false);
             }

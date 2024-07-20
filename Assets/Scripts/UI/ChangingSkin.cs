@@ -28,21 +28,13 @@ namespace DungTran31.UI
 
         private void UpdateSkin()
         {
-            switch (whatSkin)
+            squareHeadDisplay.sprite = whatSkin switch
             {
-                case 1:
-                    squareHeadDisplay.sprite = sprite1;
-                    break;
-                case 2:
-                    squareHeadDisplay.sprite = sprite2;
-                    break;
-                case 3:
-                    squareHeadDisplay.sprite = sprite3;
-                    break;
-                default:
-                    squareHeadDisplay.sprite = sprite1; // Fallback to default skin
-                    break;
-            }
+                1 => sprite1,
+                2 => sprite2,
+                3 => sprite3,
+                _ => sprite1, // Fallback to default skin
+            };
         }
 
         public int GetCurrentSkin()

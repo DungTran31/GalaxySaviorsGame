@@ -4,19 +4,20 @@ namespace DungTran31.Core
 {
     public class Tentacle : MonoBehaviour
     {
-        [SerializeField] private int length;
         [SerializeField] private LineRenderer lineRend;
-        private Vector3[] _segmentPoses;
-        private Vector3[] _segmentV;
+        [SerializeField] private int length;
         
         [SerializeField] private Transform targetDir;
         [SerializeField] private float targetDist;
         [SerializeField] private float smoothSpeed;
         [SerializeField] private float trailSpeed;
         
+        [SerializeField] private Transform wiggleDir;
         [SerializeField] private float wiggleSpeed;
         [SerializeField] private float wiggleMagnitude;
-        [SerializeField] private Transform wiggleDir;
+        
+        private Vector3[] _segmentPoses;
+        private Vector3[] _segmentV;
         
         private void Start()
         {

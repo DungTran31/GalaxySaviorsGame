@@ -5,18 +5,12 @@ namespace DungTran31.UI
 {
     public class HealthBar : MonoBehaviour
     {
-        [SerializeField] private PlayerHealth playerHealth;
-        [SerializeField] private Image totalHealthBar;
         [SerializeField] private Image currentHealthBar;
-
-        private void Start()
-        {
-            totalHealthBar.fillAmount = playerHealth.MaxHealth / 1000;
-        }
+        [SerializeField] private PlayerHealth playerHealth;
 
         private void Update()
         {
-            currentHealthBar.fillAmount = playerHealth.CurrentHealth / 1000;
+            currentHealthBar.fillAmount = playerHealth.CurrentHealth / playerHealth.MaxHealth;
         }
     }
 }

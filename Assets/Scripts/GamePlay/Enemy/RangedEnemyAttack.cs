@@ -10,10 +10,10 @@ namespace DungTran31.GamePlay.Enemy
         [SerializeField] private float distanceToShoot = 10f;
         [SerializeField] private float fireRate = 0.5f;
         [SerializeField] private float _orbitRadius = 5f;
+        
         private Transform target;
-        private bool hasCollided = false; // Add a flag to check if collision has been processed to ensure only happens once
-
         private float timeToFire;
+        private bool hasCollided = false; // Add a flag to check if collision has been processed to ensure only happens once
 
         private void Start()
         {
@@ -48,7 +48,7 @@ namespace DungTran31.GamePlay.Enemy
         {
             if(timeToFire <= 0)
             {
-                GameObject bullet = ObjectPooler.Instance.SpawnFromPool("enemyBullet", firingPoint.position, firingPoint.rotation);
+                ObjectPooler.Instance.SpawnFromPool("enemyBullet", firingPoint.position, firingPoint.rotation);
                 timeToFire = fireRate;
             }
             else

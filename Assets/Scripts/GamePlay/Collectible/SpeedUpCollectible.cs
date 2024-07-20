@@ -6,10 +6,10 @@ namespace DungTran31.GamePlay.Collectible
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.tag == "Player")
+            if (collision.CompareTag("Player"))
             {
                 collision.GetComponent<Player.PlayerMovement>().SpeedUp();
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             }
         }
     }

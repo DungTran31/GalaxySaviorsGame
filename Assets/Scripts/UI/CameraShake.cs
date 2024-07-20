@@ -36,10 +36,10 @@ namespace DungTran31.UI
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.O))
-            {
-                ShakeCamera();
-            }
+            //if(Input.GetKeyDown(KeyCode.O))
+            //{
+            //    ShakeCamera();
+            //}
 
 
             if (timer > 0)
@@ -53,17 +53,15 @@ namespace DungTran31.UI
         }
 
         // Overloaded method for manual triggering without parameters
-        private void ShakeCamera()
-        {
-            Debug.Log("ShakeCamera called (manual trigger)");
-            perlin.m_AmplitudeGain = ShakeIntensity;
-            timer = ShakeTime;
-        }
+        //private void ShakeCamera()
+        //{
+        //    perlin.m_AmplitudeGain = ShakeIntensity;
+        //    timer = ShakeTime;
+        //}
 
         // Original method, now explicitly handling the event with parameters
         private void ShakeCamera(EnemyHealth.EnemyDeathEventArgs args)
         {
-            Debug.Log("ShakeCamera called (enemy death)");
             perlin.m_AmplitudeGain = ShakeIntensity;
             timer = ShakeTime;
         }

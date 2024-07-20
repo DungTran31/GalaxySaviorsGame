@@ -6,11 +6,10 @@ namespace DungTran31.UI
 {
     public class ShockwaveManager : MonoBehaviour
     {
-        [SerializeField] private float _shockWaveTime = 0.75f;
-
         private Coroutine _shockWaveCoroutine;
         private Material _material;
         private Camera _mainCamera;
+        [SerializeField] private float _shockWaveTime = 0.75f;
         private static readonly int _waveDistanceFromCenter = Shader.PropertyToID("_WaveDistanceFromCenter");
         private static readonly int _ringSpawnPosition = Shader.PropertyToID("_RingSpawnPosition");
 
@@ -21,15 +20,8 @@ namespace DungTran31.UI
             _mainCamera = Camera.main; // Cache the main camera reference
         }
 
-        private void OnEnable()
-        {
-            EnemyHealth.OnEnemyDeath += CallShockWave;
-        }
-
-        private void OnDisable()
-        {
-            EnemyHealth.OnEnemyDeath -= CallShockWave;
-        }
+        private void OnEnable() => EnemyHealth.OnEnemyDeath += CallShockWave;
+        private void OnDisable() => EnemyHealth.OnEnemyDeath -= CallShockWave;
 
         private void CallShockWave(EnemyHealth.EnemyDeathEventArgs args)
         {

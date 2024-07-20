@@ -8,6 +8,7 @@ namespace DungTran31.Core
         [SerializeField] private GameObject helpText;
         [SerializeField] private GameObject OText;
         [SerializeField] private GameObject options;
+        [SerializeField] private GameObject levelPanel;
         [SerializeField] private GameObject settingPanel;
         [SerializeField] private GameObject aboutPanel;
         [SerializeField] private GameObject[] cubes;
@@ -15,6 +16,7 @@ namespace DungTran31.Core
         private void Awake()
         {
             SetActiveAllCubes(true);
+            levelPanel.SetActive(false);
             settingPanel.SetActive(false);
             aboutPanel.SetActive(false);
             helpText.SetActive(true);
@@ -30,41 +32,36 @@ namespace DungTran31.Core
             }
         }
 
+        public void ShowLevel()
+        {
+            TogglePanel(levelPanel, false, true);
+        }
+
+        public void HideLevel()
+        {
+            TogglePanel(levelPanel, true, true);
+        }
+
         public void ShowSetting()
         {
-            SetActiveAllCubes(false);
-            settingPanel.SetActive(true);
-            OText.SetActive(false);
-            AudioManager.Instance.musicSource.Pause();
-            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
+            TogglePanel(settingPanel, false, true);
         }
 
         public void HideSetting()
         {
-            SetActiveAllCubes(true);
-            settingPanel.SetActive(false);
-            OText.SetActive(true);
-            AudioManager.Instance.musicSource.UnPause();
-            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
+            TogglePanel(settingPanel, true, true);
         }
 
         public void ShowAbout()
         {
-            SetActiveAllCubes(false);
-            aboutPanel.SetActive(true);
-            OText.SetActive(false);
-            AudioManager.Instance.musicSource.Pause();
-            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
+            TogglePanel(aboutPanel, false, true);
         }
 
         public void HideAbout()
         {
-            SetActiveAllCubes(true);
-            aboutPanel.SetActive(false);
-            OText.SetActive(true);
-            AudioManager.Instance.musicSource.UnPause();
-            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
+            TogglePanel(aboutPanel, true, true);
         }
+
 
         public void OpenLink(string link)
         {
@@ -85,5 +82,26 @@ namespace DungTran31.Core
                 cube.SetActive(active);
             }
         }
+        private void TogglePanel(GameObject panelToShow, bool showCubes, bool pauseMusic)
+        {
+            SetActiveAllCubes(showCubes);
+            panelToShow.SetActive(!showCubes);
+            OText.SetActive(showCubes);
+
+            if (pauseMusic)
+            {
+                if (showCubes)
+                {
+                    AudioManager.Instance.musicSource.UnPause();
+                }
+                else
+                {
+                    AudioManager.Instance.musicSource.Pause();
+                }
+            }
+
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
+        }
+
     }
 }

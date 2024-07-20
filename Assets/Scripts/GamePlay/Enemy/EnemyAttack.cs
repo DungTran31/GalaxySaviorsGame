@@ -14,6 +14,8 @@ namespace DungTran31.GamePlay.Enemy
 
         private void Update()
         {
+            if (Dialogues.DialogueManager.Instance.DialogueIsPlaying) return;
+
             if (!target)
             {
                 GetTarget();

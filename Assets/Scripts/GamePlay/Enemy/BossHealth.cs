@@ -8,37 +8,36 @@ namespace DungTran31.GamePlay.Enemy
     public class BossHealth : MonoBehaviour
     {
         [Header("Health")]
-        [SerializeField] private float maxHealth = 2f;
         [SerializeField] private BossHealthBar bossHealthBar;
         [SerializeField] private GameObject floatingTextPrefab;
         [SerializeField] private GameObject bloodEffect;
         [SerializeField] private GameObject bloodSplash;
-
+        [SerializeField] private float maxHealth = 200f;
         [Header("Status Effects")]
         [SerializeField] private float poisonDuration = 5f;
         [SerializeField] private float poisonTickTime = 1f;
         [SerializeField] private float freezeDuration = 3f;
 
+        private float currentHealth;
         private bool isPoisoned = false;
         private bool isFrozen = false;
-        private float currentHealth;
 
         public float GetCurrentHealth()
         {
             return currentHealth;
         }
 
-        public struct EnemyDeathEventArgs
+        public struct BossDeathEventArgs
         {
             public Vector3 Position;
 
-            public EnemyDeathEventArgs(Vector3 position)
+            public BossDeathEventArgs(Vector3 position)
             {
                 Position = position;
             }
         }
 
-        public static event Action<EnemyDeathEventArgs> OnEnemyDeath;
+        public static event Action<BossDeathEventArgs> OnBossDeath;
 
         private void OnEnable()
         {
@@ -83,7 +82,7 @@ namespace DungTran31.GamePlay.Enemy
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.identity);
                 Instantiate(bloodSplash, transform.position, Quaternion.identity);
-                OnEnemyDeath?.Invoke(new EnemyDeathEventArgs(transform.position));
+                OnBossDeath?.Invoke(new BossDeathEventArgs(transform.position));
                 gameObject.SetActive(false);
             }
         }

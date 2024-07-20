@@ -10,20 +10,22 @@ namespace DungTran31.Core
         [SerializeField] private Animator transition;
         private static readonly int Start = Animator.StringToHash("Start");
 
-        public void NextLevel()
+        // Modified NextLevel method to accept a scene index
+        public void NextLevel(int sceneIndex)
         {
-            StartCoroutine(LoadLevel());
-            if(AudioManager.Instance != null)
+            StartCoroutine(LoadLevel(sceneIndex));
+            if (AudioManager.Instance != null)
                 AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
         }
 
-        IEnumerator LoadLevel()
+        // Modified LoadLevel coroutine to accept a scene index
+        IEnumerator LoadLevel(int sceneIndex)
         {
             if (transition != null)
             {
                 transition.SetTrigger(Start);
                 yield return new WaitForSeconds(1); // Adjust the wait time as needed
-                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadSceneAsync(sceneIndex);
             }
             else
             {

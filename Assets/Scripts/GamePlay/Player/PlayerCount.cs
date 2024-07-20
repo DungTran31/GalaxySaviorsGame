@@ -8,11 +8,12 @@ namespace DungTran31.GamePlay.Player
     public class PlayerCount : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI killRemainingCountText;
-        [SerializeField] private int targetKillCount;
         [SerializeField] private GameObject bossPrefab;
-        private bool bossSpawned = false;
+        [SerializeField] private int targetKillCount;
+
         public static event Action OnTargetKillCountReached;
         public int KillCount { get; private set; }
+        private bool bossSpawned = false;
 
         private void Start()
         {

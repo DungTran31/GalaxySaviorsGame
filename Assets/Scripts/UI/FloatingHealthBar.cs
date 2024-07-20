@@ -23,8 +23,7 @@ namespace DungTran31.UI
         {
             if (target != null)
             {
-                transform.rotation = camera.transform.rotation;
-                transform.position = target.position + offset;
+                transform.SetPositionAndRotation(target.position + offset, camera.transform.rotation);
             }
         }
     }

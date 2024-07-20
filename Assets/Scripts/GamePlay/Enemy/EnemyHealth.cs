@@ -10,9 +10,9 @@ namespace DungTran31.GamePlay.Enemy
     {
         [SerializeField] private FloatingHealthBar floatingHealthBar;
         [SerializeField] private EnemyHealthSO enemyHealthSO;
+        private float currentHealth;
         private bool isPoisoned = false;
         private bool isFrozen = false;
-        private float currentHealth;
 
         public float GetCurrentHealth()
         {
@@ -63,6 +63,11 @@ namespace DungTran31.GamePlay.Enemy
         public void TakeBlackDamage(float amount)
         {
             ApplyDamage(amount);
+        }
+
+        public void Die()
+        {
+            ApplyDamage(enemyHealthSO.MaxHealth);
         }
 
         private void ApplyDamage(float amount)
@@ -138,8 +143,6 @@ namespace DungTran31.GamePlay.Enemy
             }
             isFrozen = false;
         }
-
-
 
         private IEnumerator PoisonEnemy(float damage, float duration)
         {

@@ -7,7 +7,7 @@ namespace DungTran31.Core
     public class AudioManager : SingletonPersistent<AudioManager>
     {
         [Header("Audio Source")]
-        [SerializeField] public AudioSource musicSource;
+        [SerializeField] internal AudioSource musicSource;
         [SerializeField] private AudioSource sfxSource;
 
         [Header("Audio Clip")]
@@ -30,6 +30,14 @@ namespace DungTran31.Core
         private void Update()
         {
             if (SceneManager.GetActiveScene().name.StartsWith("PreLevel"))
+            {
+                musicSource.Pause();
+            }
+            else
+            {
+                musicSource.UnPause();
+            }
+            if (Dialogues.DialogueManager.Instance.DialogueIsPlaying)
             {
                 musicSource.Pause();
             }

@@ -7,9 +7,6 @@ namespace DungTran31
         [SerializeField] private Vector3 _rotation;
         [SerializeField] private float _speed;
 
-        private void Update()
-        {
-            transform.Rotate(_rotation * _speed * Time.deltaTime);
-        }
+        private void Update() => transform.Rotate(_speed * Time.deltaTime * _rotation);
     }
 }

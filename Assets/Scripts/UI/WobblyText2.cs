@@ -8,8 +8,8 @@ namespace DungTran31.UI
     {
         [SerializeField] private TMP_Text textMesh;
         [SerializeField] private Gradient rainbow;
-        private Mesh _mesh;
         private Vector3[] _vertices;
+        private Mesh _mesh;
         private List<int> _wordIndexes;
         private List<int> _wordLengths;
 
@@ -24,10 +24,12 @@ namespace DungTran31.UI
             string s = textMesh.text;
             for (int index = s.IndexOf(' '); index > -1; index = s.IndexOf(' ', index + 1))
             {
-                _wordLengths.Add(index - _wordIndexes[_wordIndexes.Count - 1]);
+                //_wordLengths.Add(index - _wordIndexes[_wordIndexes.Count - 1]);
+                _wordLengths.Add(index - _wordIndexes[^1]);
                 _wordIndexes.Add(index + 1);
             }
-            _wordLengths.Add(s.Length - _wordIndexes[_wordIndexes.Count - 1]);
+            //_wordLengths.Add(s.Length - _wordIndexes[_wordIndexes.Count - 1]);
+            _wordLengths.Add(s.Length - _wordIndexes[^1]);
         }
 
         private void Update()

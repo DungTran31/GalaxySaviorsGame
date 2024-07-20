@@ -48,6 +48,12 @@ namespace DungTran31.GamePlay.Player
             }
         }
 
+        public void IncreaseMaxHealth(float amount)
+        {
+            MaxHealth += amount;
+            CurrentHealth = MaxHealth; // Optionally reset current health to max
+        }
+
         private IEnumerator Invunerability()
         {
             // Ignore collisions with enemies

@@ -4,16 +4,17 @@ namespace DungTran31.GamePlay.Enemy
 {
     public class RangedEnemyMovement : MonoBehaviour
     {
-        [SerializeField] public float speed = 5f;
+        [SerializeField] internal float speed = 5f;
         [SerializeField] private float playerAwarenessDistance = 10f; 
-        private Rigidbody2D rb;
         [SerializeField] private float distanceToStop = 5f;
 
+        private Rigidbody2D rb;
         private Transform target;
-        private bool awareOfPlayer;
-        private float changeDirectionCooldown;
         private Vector2 direction;
         private Vector2 targetDirection;
+        private float changeDirectionCooldown;
+        private bool awareOfPlayer;
+
 
         private void Awake()
         {
@@ -25,7 +26,8 @@ namespace DungTran31.GamePlay.Enemy
 
         private void Update()
         {
-            if(target != null)
+            if (Dialogues.DialogueManager.Instance.DialogueIsPlaying) return;
+            if (target != null)
                 AwarePlayerDistance();
             PreventEnemyGoingOffScreen();
         }

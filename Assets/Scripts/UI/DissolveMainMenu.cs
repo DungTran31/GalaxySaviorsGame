@@ -7,10 +7,10 @@ namespace DungTran31.UI
     public class DissolveMainMenu : Singleton<DissolveMainMenu>
     {
         private Material _material;
-        private bool _isAppearing; 
-        private bool _isVanishing;
         private float _fade = 1f;
         private static readonly int DissolveAmount = Shader.PropertyToID("_DissolveAmount");
+        private bool _isAppearing; 
+        private bool _isVanishing;
 
         private void Start()
         {

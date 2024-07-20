@@ -19,7 +19,7 @@ namespace DungTran31.Dialogues
         [SerializeField] private TextAsset loadGlobalsJSON;
 
         [Header("Dialogue UI")]
-        [SerializeField] public GameObject notiText;
+        [SerializeField] private GameObject notiText; 
         [SerializeField] private GameObject dialoguePanel;
         [SerializeField] private GameObject continueIcon;
         [SerializeField] private TextMeshProUGUI dialogueText;
@@ -40,22 +40,25 @@ namespace DungTran31.Dialogues
         private AudioSource audioSource;
 
         private Story currentStory;
-        public bool dialogueIsPlaying { get; private set; }
-        public int dialogueCount { get; private set; }
-        private bool canContinueToNextLine = false;
         private Coroutine displayLineCoroutine;
+        private DialogueVariables dialogueVariables;
 
         private const string SPEAKER_TAG = "speaker";
         private const string PORTRAIT_TAG = "portrait";
         private const string LAYOUT_TAG = "layout";
         private const string AUDIO_TAG = "audio";
 
-        private DialogueVariables dialogueVariables;
+        public int DialogueCount { get; private set; }
+        public bool DialogueIsPlaying { get; private set; }
+        private bool canContinueToNextLine = false;
 
         protected override void Awake()
         {
             base.Awake();
-            notiText.SetActive(true);
+            if (notiText != null)
+            {
+                notiText.SetActive(true);
+            }
             dialogueVariables = new DialogueVariables(loadGlobalsJSON);
 
             audioSource = this.gameObject.AddComponent<AudioSource>();
@@ -64,8 +67,8 @@ namespace DungTran31.Dialogues
 
         private void Start()
         {
-            dialogueCount = 1;
-            dialogueIsPlaying = false;
+            DialogueCount = 1;
+            DialogueIsPlaying = false;
             dialoguePanel.SetActive(false);
             // get the layout animator
             layoutAnimator = dialoguePanel.GetComponent<Animator>();
@@ -84,8 +87,10 @@ namespace DungTran31.Dialogues
 
         private void InitializeAudioInfoDictionary()
         {
-            audioInfoDictionary = new Dictionary<string, DialogueAudioInfoSO>();
-            audioInfoDictionary.Add(defaultAudioInfo.id, defaultAudioInfo);
+            audioInfoDictionary = new Dictionary<string, DialogueAudioInfoSO>
+            {
+                { defaultAudioInfo.id, defaultAudioInfo }
+            };
             foreach (DialogueAudioInfoSO audioInfo in audioInfos)
             {
                 audioInfoDictionary.Add(audioInfo.id, audioInfo);
@@ -94,8 +99,7 @@ namespace DungTran31.Dialogues
 
         private void SetCurrentAudioInfo(string id)
         {
-            DialogueAudioInfoSO audioInfo = null;
-            audioInfoDictionary.TryGetValue(id, out audioInfo);
+            audioInfoDictionary.TryGetValue(id, out DialogueAudioInfoSO audioInfo);
             if (audioInfo != null)
             {
                 this.currentAudioInfo = audioInfo;
@@ -108,7 +112,7 @@ namespace DungTran31.Dialogues
 
         private void Update()
         {
-            if(!dialogueIsPlaying)
+            if(!DialogueIsPlaying)
             {
                 return;
             }
@@ -125,8 +129,12 @@ namespace DungTran31.Dialogues
         public void EnterDialogueMode(TextAsset inkJSON)
         {
             currentStory = new Story(inkJSON.text);
+            if(notiText != null)
+            {
+                notiText.SetActive(false);
+            }
             dialoguePanel.SetActive(true);
-            dialogueIsPlaying = true;
+            DialogueIsPlaying = true;
             dialogueVariables.StartListening(currentStory);
 
             // reset portrait, layout, and speaker
@@ -139,11 +147,11 @@ namespace DungTran31.Dialogues
         
         private IEnumerator ExitDialogueMode()
         {
-            dialogueCount--;
+            DialogueCount--;
             yield return new WaitForSeconds(0.2f);
 
             dialogueVariables.StopListening(currentStory);
-            dialogueIsPlaying = false;
+            DialogueIsPlaying = false;
             dialoguePanel.SetActive(false);
             dialogueText.text = "";
 
@@ -244,7 +252,7 @@ namespace DungTran31.Dialogues
                 {
                     audioSource.Stop();
                 }
-                AudioClip soundClip = null;
+                AudioClip soundClip;
                 // create predictable audio from hashing
                 if (makePredictable)
                 {
@@ -342,14 +350,14 @@ namespace DungTran31.Dialogues
             // enable and initialize the choices up to the amount of choices for this line of dialogue
             foreach (Choice choice in currentChoices)
             {
-                choices[index].gameObject.SetActive(true);
+                choices[index].SetActive(true);
                 choicesText[index].text = choice.text;
                 index++;
             }
             // go through the remaining choices the UI supports and make sure they're hidden
             for (int i = index; i < choices.Length; i++)
             {
-                choices[i].gameObject.SetActive(false);
+                choices[i].SetActive(false);
             }
             StartCoroutine(SelectFirstChoice());
         }
@@ -360,7 +368,7 @@ namespace DungTran31.Dialogues
             // for at least one frame before we set the current selected object.
             EventSystem.current.SetSelectedGameObject(null);
             yield return new WaitForEndOfFrame();
-            EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+            EventSystem.current.SetSelectedGameObject(choices[0]);
         }
 
         public void MakeChoice(int choiceIndex)
@@ -375,8 +383,7 @@ namespace DungTran31.Dialogues
 
         public Ink.Runtime.Object GetVariableState(string variableName)
         {
-            Ink.Runtime.Object variableValue = null;
-            dialogueVariables.variables.TryGetValue(variableName, out variableValue);
+            dialogueVariables.Variables.TryGetValue(variableName, out Ink.Runtime.Object variableValue);
             if (variableValue == null)
             {
                 Debug.LogWarning("Ink Variable was found to be null: " + variableName);
@@ -389,8 +396,7 @@ namespace DungTran31.Dialogues
         protected override void OnApplicationQuit()
         {
             base.OnApplicationQuit();
-            if(dialogueVariables != null)
-                dialogueVariables.SaveVariables();
+            dialogueVariables?.SaveVariables();
         }
     }
 }

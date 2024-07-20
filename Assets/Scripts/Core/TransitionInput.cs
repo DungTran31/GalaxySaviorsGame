@@ -1,5 +1,6 @@
 using DungTran31.Dialogues;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DungTran31.Core
 {
@@ -8,11 +9,11 @@ namespace DungTran31.Core
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Return)
-                && !DialogueManager.Instance.dialogueIsPlaying 
-                && DialogueManager.Instance.dialogueCount == 0)
+                && !DialogueManager.Instance.DialogueIsPlaying 
+                && DialogueManager.Instance.DialogueCount == 0)
             {
                 if(SceneController.Instance != null)
-                    SceneController.Instance.NextLevel();
+                    SceneController.Instance.NextLevel(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
     }

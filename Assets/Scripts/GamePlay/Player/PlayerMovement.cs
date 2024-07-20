@@ -5,22 +5,22 @@ namespace DungTran31.GamePlay.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField] private TrailRenderer trailRenderer;
+        [SerializeField] private GameObject dashEffect;
         [SerializeField] private float rotationSpeed = 25f;
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float dashSpeed = 50f;
         [SerializeField] private float startDashTime = 0.1f;
         [SerializeField] private float dashCooldown = 1f; 
-        [SerializeField] private TrailRenderer trailRenderer;
-        [SerializeField] private GameObject dashEffect;
 
         private Vector2 _direction;
         private Vector2 _cursorPos; 
         private Camera _camera;
         private Rigidbody2D _rb;
         private float dashTime;
-        private int dashDirection;
         private float dashCooldownTimer = 0;
         private float originalMoveSpeed; // To store the original move speed
+        private int dashDirection;
 
         private void Awake()
         {
@@ -31,6 +31,8 @@ namespace DungTran31.GamePlay.Player
 
         private void Update()
         {
+            if(Dialogues.DialogueManager.Instance.DialogueIsPlaying) return;
+
             SetPlayerVelocity();
             //PreventPlayerGoingOffScreen();
             _cursorPos = _camera.ScreenToWorldPoint(Input.mousePosition);
@@ -59,6 +61,8 @@ namespace DungTran31.GamePlay.Player
                     _rb.velocity = transform.right * dashSpeed;
                     if (trailRenderer != null)
                     {
+                        // Safe to access trailRenderer here
+                        trailRenderer.time = 2.0f;
                         trailRenderer.emitting = true; // Enable the trail renderer
                     }
                     dashTime -= Time.deltaTime;
@@ -89,6 +93,10 @@ namespace DungTran31.GamePlay.Player
 
             // Always move towards the cursor position
             transform.position = Vector2.MoveTowards(transform.position, _cursorPos, moveSpeed * Time.deltaTime);
+        }
+        public void IncreaseMoveSpeed(float amount)
+        {
+            moveSpeed += amount;
         }
 
         public void SpeedUp()

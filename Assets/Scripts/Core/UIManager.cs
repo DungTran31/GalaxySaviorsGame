@@ -6,8 +6,6 @@ namespace DungTran31.Core
 {
     public class UIManager : MonoBehaviour
     {
-        
-
         //Quit game/exit play mode if in Editor
         public void Quit()
         {

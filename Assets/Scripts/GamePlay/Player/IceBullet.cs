@@ -8,7 +8,6 @@ namespace DungTran31.GamePlay.Player
     {
         [SerializeField] private PlayerBulletSO playerBulletSO;
 
-
         private Rigidbody2D rb;
 
         private void Awake()

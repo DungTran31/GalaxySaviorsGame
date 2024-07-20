@@ -10,12 +10,11 @@ namespace DungTran31.Dialogues
 
         private void Update()
         {
-            if (!DialogueManager.Instance.dialogueIsPlaying)
+            if (!DialogueManager.Instance.DialogueIsPlaying)
             {
                 // Check if the dialogue has not started and the interact button is pressed
-                if (InputManager.Instance.GetInteractPressed() && DialogueManager.Instance.dialogueCount > 0)
+                if (InputManager.Instance.GetInteractPressed() && DialogueManager.Instance.DialogueCount > 0)
                 {
-                    DialogueManager.Instance.notiText.SetActive(false);
                     DialogueManager.Instance.EnterDialogueMode(inkJSON);
                 } 
             }
