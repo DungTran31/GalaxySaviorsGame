@@ -38,11 +38,11 @@ namespace DungTran31.GamePlay.Player
             {
                 if (collision.TryGetComponent<Enemy.EnemyHealth>(out Enemy.EnemyHealth enemyHealth))
                 {
-                    enemyHealth.TakeBlackDamage(playerBulletSO.Damage);
+                    enemyHealth.TakeDamage(playerBulletSO.Damage);
                 }
                 else if (collision.TryGetComponent<Enemy.BossHealth>(out Enemy.BossHealth bossHealth))
                 {
-                    bossHealth.TakeBlackDamage(playerBulletSO.Damage);
+                    bossHealth.TakeDamage(playerBulletSO.Damage);
                 }
                 this.gameObject.SetActive(false);
             }

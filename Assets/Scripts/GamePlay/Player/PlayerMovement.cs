@@ -94,9 +94,9 @@ namespace DungTran31.GamePlay.Player
             // Always move towards the cursor position
             transform.position = Vector2.MoveTowards(transform.position, _cursorPos, moveSpeed * Time.deltaTime);
         }
-        public void IncreaseMoveSpeed(float amount)
+        public void IncreaseMoveSpeedByPercentage(float percentage)
         {
-            moveSpeed += amount;
+            moveSpeed += Mathf.RoundToInt(moveSpeed * (percentage / 100f));
         }
 
         public void SpeedUp()

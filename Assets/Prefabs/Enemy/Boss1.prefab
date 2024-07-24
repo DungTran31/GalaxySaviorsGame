@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 1863480648030355741}
   - component: {fileID: 1565456168124204056}
   - component: {fileID: 5049669913200909118}
-  - component: {fileID: -8453690873145495203}
+  - component: {fileID: 5914372619894972150}
   - component: {fileID: 5931407649269773358}
   m_Layer: 10
   m_Name: Boss1
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -8675861
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_Sprite: {fileID: 1687717375, guid: 2e191410a7bb047438ffedae8cdb3440, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -281,7 +281,7 @@ MonoBehaviour:
   playerAwarenessDistance: 1000
   direction: {x: 0, y: 0}
   targetDirection: {x: 0, y: 0}
---- !u!114 &-8453690873145495203
+--- !u!114 &5914372619894972150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,9 +290,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1366539882291354084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be1ad5d957e59f54da0d5d2e064d5c49, type: 3}
+  m_Script: {fileID: 11500000, guid: cc3893b790022a44eb80a55a403e1239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!114 &5931407649269773358
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ namespace DungTran31.GamePlay.Enemy
 {
     public class EnemyAttack : MonoBehaviour
     {
+        [SerializeField] private float damage = 100f;
         private Transform target;
         private bool hasCollided = false; // Add a flag to check if collision has been processed to ensure only happens once
 
@@ -29,11 +30,11 @@ namespace DungTran31.GamePlay.Enemy
                 target = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.CompareTag("Player") && !hasCollided)
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<Player.PlayerHealth>().TakeDamage(damage);
                 target = null;
                 hasCollided = true; // Set the flag to true after processing the collision
             }

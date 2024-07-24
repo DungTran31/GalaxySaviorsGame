@@ -48,10 +48,10 @@ namespace DungTran31.GamePlay.Player
             }
         }
 
-        public void IncreaseMaxHealth(float amount)
+        public void IncreaseMaxHealthByPercentage(float percentage)
         {
-            MaxHealth += amount;
-            CurrentHealth = MaxHealth; // Optionally reset current health to max
+            MaxHealth += Mathf.RoundToInt(MaxHealth * (percentage / 100f));
+            //CurrentHealth = MaxHealth; // optional: heal the player to full health
         }
 
         private IEnumerator Invunerability()

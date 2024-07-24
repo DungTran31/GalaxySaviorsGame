@@ -10,6 +10,7 @@ namespace DungTran31.GamePlay.Player
     {
         [SerializeField] private Image experienceBar; 
         [SerializeField] private TMP_Text levelText;
+        [SerializeField] private TMP_Text experienceText;
         [SerializeField] private LevelSO levelConfig; 
         [SerializeField] private PlayerHealth playerHealth; // Reference to the PlayerHealth script
         [SerializeField] private PlayerMovement playerMovement; // Reference to the PlayerMovement script
@@ -41,26 +42,26 @@ namespace DungTran31.GamePlay.Player
             CalculateRequireExp();
 
             // Assuming you have references set up
-            playerHealth.IncreaseMaxHealth(50); // Increase max health by 50
-            playerMovement.IncreaseMoveSpeed(1); // Increase move speed by 1
+            playerHealth.IncreaseMaxHealthByPercentage(10); // Increase max health by 10%
+            playerMovement.IncreaseMoveSpeedByPercentage(5); // Increase move speed by 5%
 
-            List<int> damageValues = new() { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+            List<int> percentageIncreases = new() { 5, 10, 15, 20 };
 
-            // Shuffle the list to randomize the order of damage values
+            // Shuffle the list to randomize the order of percentage increases
             System.Random rng = new();
-            int n = damageValues.Count;
+            int n = percentageIncreases.Count;
             while (n > 1)
             {
                 n--;
                 int k = rng.Next(n + 1);
-                (damageValues[k], damageValues[n]) = (damageValues[n], damageValues[k]); // Using tuple to swap values
+                (percentageIncreases[k], percentageIncreases[n]) = (percentageIncreases[n], percentageIncreases[k]); // Using tuple to swap values
             }
 
-            // Assign unique random damage increases to each bullet type
-            fireBulletSO.IncreaseDamage(damageValues[0]);
-            iceBulletSO.IncreaseDamage(damageValues[1]);
-            blackBulletSO.IncreaseDamage(damageValues[2]);
-            poisonBulletSO.IncreaseDamage(damageValues[3]);
+            // Assign unique random percentage increases to each bullet type
+            fireBulletSO.IncreaseDamageByPercentage(percentageIncreases[0]);
+            iceBulletSO.IncreaseDamageByPercentage(percentageIncreases[1]);
+            blackBulletSO.IncreaseDamageByPercentage(percentageIncreases[2]);
+            poisonBulletSO.IncreaseDamageByPercentage(percentageIncreases[3]);
         }
 
         private void Start()
@@ -79,7 +80,7 @@ namespace DungTran31.GamePlay.Player
         {
             experienceBar.fillAmount = (float)experience / (float)requireExperience; 
             levelText.text = "Level: " + level;
-            //experienceText.text = experience + "/" + requireExperience + "Exp"; 
+            experienceText.text = experience + " / " + requireExperience + " Exp"; 
         }
     }
 }

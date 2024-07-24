@@ -11,9 +11,23 @@ namespace DungTran31.GamePlay.Player.SO
         [field: Range(1, 10)]
         [field: SerializeField] public float LifeTime { get; private set; }
 
-        public void IncreaseDamage(float amount)
+        public void IncreaseDamageByPercentage(float percentage)
         {
-            Damage += amount;
+            Damage += Mathf.RoundToInt(Damage * (percentage / 100f));
+        }
+
+        private float originalDamage;
+
+        private void OnEnable()
+        {
+            // Store the original damage value when the ScriptableObject is enabled
+            originalDamage = Damage;
+        }
+
+        private void OnDisable()
+        {
+            // Reset the damage value to the original when the ScriptableObject is disabled
+            Damage = originalDamage;
         }
     }
 }

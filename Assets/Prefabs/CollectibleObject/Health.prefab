@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4044350142309436389}
   - component: {fileID: 797495927896748180}
   - component: {fileID: 1141685915137564663}
+  - component: {fileID: -5588237861469763040}
   - component: {fileID: 1409972533029156441}
   m_Layer: 0
   m_Name: Health
@@ -131,6 +132,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!50 &-5588237861469763040
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864879658609832678}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &1409972533029156441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,4 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687726fc2c9aace478544fe6c1db1255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatingHealthTextPrefab: {fileID: 3162044731848583576, guid: c1b030a162baf2048854902c27319c87, type: 3}
   healthValue: 100

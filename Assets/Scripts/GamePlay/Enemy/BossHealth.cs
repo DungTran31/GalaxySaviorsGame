@@ -46,7 +46,7 @@ namespace DungTran31.GamePlay.Enemy
             bossHealthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
 
-        public void TakeFireDamage(float amount)
+        public void TakeDamage(float amount)
         {
             ApplyDamage(amount);
         }
@@ -67,12 +67,6 @@ namespace DungTran31.GamePlay.Enemy
                 StartCoroutine(PoisonEnemy(amount, poisonDuration));
             }
         }
-
-        public void TakeBlackDamage(float amount)
-        {
-            ApplyDamage(amount);
-        }
-
         private void ApplyDamage(float amount)
         {
             ShowDamage(amount.ToString());

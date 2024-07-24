@@ -11,7 +11,7 @@ namespace DungTran31.GamePlay.Collectible
         {
             if (collision.CompareTag("Player"))
             {
-                collision.GetComponent<Player.PlayerExp>().IncreaseExp(Random.Range(0, maxExpValue));
+                collision.GetComponent<Player.PlayerExp>().IncreaseExp(Random.Range(1, maxExpValue));
                 Destroy(gameObject);
             }
         }

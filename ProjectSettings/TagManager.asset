@@ -11,6 +11,8 @@ TagManager:
   - EnemyBullet
   - PlayerHead
   - ShockwaveTag
+  - Collectible
+  - PlayerBall
   layers:
   - Default
   - TransparentFX

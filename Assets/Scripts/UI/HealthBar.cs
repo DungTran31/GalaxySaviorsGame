@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DungTran31.GamePlay.Player;
+
 namespace DungTran31.UI
 {
     public class HealthBar : MonoBehaviour

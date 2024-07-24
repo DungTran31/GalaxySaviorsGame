@@ -1,20 +1,19 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace DungTran31.UI
 {
     public class BulletTypeUI : MonoBehaviour
     {
-        private Image skillImage;
+        private Animator animator;
 
         private void Awake()
         {
-            skillImage = GetComponent<Image>();
+            animator = GetComponent<Animator>();
         }
 
-        public void UpdateBulletTypeUI(Color color)
+        public void UpdateBulletTypeUI(int index)
         {
-            skillImage.color = color;
+            animator.SetInteger("BulletType", index);
         }
     }
 }
