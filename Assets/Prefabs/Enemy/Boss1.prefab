@@ -114,9 +114,9 @@ GameObject:
   - component: {fileID: 1925008221753103372}
   - component: {fileID: 1863480648030355741}
   - component: {fileID: 1565456168124204056}
-  - component: {fileID: 5049669913200909118}
   - component: {fileID: 5914372619894972150}
   - component: {fileID: 5931407649269773358}
+  - component: {fileID: 1216002577995069926}
   m_Layer: 10
   m_Name: Boss1
   m_TagString: Enemy
@@ -265,22 +265,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5049669913200909118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366539882291354084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9223d18a1abb94e45be89a8b2af33d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  playerAwarenessDistance: 1000
-  direction: {x: 0, y: 0}
-  targetDirection: {x: 0, y: 0}
 --- !u!114 &5914372619894972150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +278,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  dashSpeed: 20
+  dashDistance: 5
+  attackCooldown: 2
 --- !u!114 &5931407649269773358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +301,22 @@ MonoBehaviour:
   poisonDuration: 5
   poisonTickTime: 1
   freezeDuration: 3
+--- !u!114 &1216002577995069926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366539882291354084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519bc6544a75f3c4093bdf4d3b38b9bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  playerAwarenessDistance: 10000
+  direction: {x: 0, y: 0}
+  targetDirection: {x: 0, y: 0}
 --- !u!1 &2871621190226926855
 GameObject:
   m_ObjectHideFlags: 0
