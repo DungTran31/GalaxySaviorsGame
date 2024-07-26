@@ -17,7 +17,7 @@ namespace DungTran31.GamePlay.Enemy
         public float GetCurrentHealth()
         {
             return currentHealth;
-        }  
+        }
 
         public struct EnemyDeathEventArgs
         {
@@ -87,9 +87,8 @@ namespace DungTran31.GamePlay.Enemy
             float originalRangedSpeed = 0f;
 
             // Attempt to get the movement components
-            var movementComponent = GetComponent<EnemyMovement>();
-            var movementRangedComponent = GetComponent<RangedEnemyMovement>();
-            var attackRangedComponent = GetComponent<RangedEnemyAttack>();
+            var movementComponent = GetComponent<EnemyAI>();
+            var movementRangedComponent = GetComponent<RangedEnemyAI>();
 
             // Check if the components exist before trying to access their properties
             if (movementComponent != null)
@@ -102,10 +101,6 @@ namespace DungTran31.GamePlay.Enemy
             {
                 originalRangedSpeed = movementRangedComponent.speed;
                 movementRangedComponent.speed = 0; // Disable movement
-            }
-
-            if (attackRangedComponent != null) {
-                attackRangedComponent.enabled = false; // Disable attack
             }
 
             // Optionally, change the enemy's appearance to indicate it's frozen
@@ -125,11 +120,6 @@ namespace DungTran31.GamePlay.Enemy
             if (movementRangedComponent != null)
             {
                 movementRangedComponent.speed = originalRangedSpeed; // Re-enable movement
-            }
-
-            if (attackRangedComponent != null)
-            {
-                attackRangedComponent.enabled = true; // Re-enable attack
             }
 
             if (spriteRenderer != null)

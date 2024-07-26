@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e3de33e8febb7b4c9c75a394c575bb7, type: 3}
-  m_Name: EnemyHealth1 2
+  m_Name: EnemyHealth2
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 200
   <FloatingTextPrefab>k__BackingField: {fileID: 3162044731848583576, guid: fe82445335032f944b0bcfc823b07262, type: 3}

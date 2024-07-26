@@ -46,9 +46,8 @@ namespace DungTran31.GamePlay.Enemy
             {
                 if (gameObject.CompareTag("Enemy"))
                 {
-                    EnemyHealth enemyHealth = gameObject.GetComponent<EnemyHealth>();
                     // Check if the EnemyHealth component exists before calling Die()
-                    if (enemyHealth != null) // because boss have Enemy tag but don't have EnemyHealth script
+                    if (gameObject.TryGetComponent<EnemyHealth>(out var enemyHealth)) // because boss have Enemy tag but don't have EnemyHealth script
                     {
                         enemyHealth.Die();
                     }

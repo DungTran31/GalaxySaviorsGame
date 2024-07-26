@@ -8,7 +8,8 @@ namespace DungTran31.GamePlay.Player
     {
         [Header("Health")]
         [SerializeField] private GameObject deathEffect;
-        public float MaxHealth { get; private set; } = 400;
+        [SerializeField] private GameObject bleedEffect;
+        [field: SerializeField] public float MaxHealth { get; private set; } = 400f;
         public float CurrentHealth { get; private set; }
 
         [Header("iFrames")]
@@ -27,6 +28,7 @@ namespace DungTran31.GamePlay.Player
         {
             if (isInvulnerable) return;
             CurrentHealth = Mathf.Clamp(CurrentHealth - amount, 0, MaxHealth);
+            Instantiate(bleedEffect, transform.position, Quaternion.identity);
             if (CurrentHealth <= 0)
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
@@ -51,7 +53,7 @@ namespace DungTran31.GamePlay.Player
         public void IncreaseMaxHealthByPercentage(float percentage)
         {
             MaxHealth += Mathf.RoundToInt(MaxHealth * (percentage / 100f));
-            //CurrentHealth = MaxHealth; // optional: heal the player to full health
+            CurrentHealth = MaxHealth; // optional: heal the player to full health
         }
 
         private IEnumerator Invunerability()

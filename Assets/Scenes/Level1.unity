@@ -5064,6 +5064,10 @@ PrefabInstance:
       propertyPath: trailRenderer
       value: 
       objectReference: {fileID: 230785731}
+    - target: {fileID: 8882274182707076539, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
+      propertyPath: bleedEffect
+      value: 
+      objectReference: {fileID: 6525560416825447839, guid: 515362ad19752554cbb62a8d28912a13, type: 3}
     m_RemovedComponents:
     - {fileID: 4958048819758144290, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
     m_RemovedGameObjects:

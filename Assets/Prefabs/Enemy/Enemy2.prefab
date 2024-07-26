@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 1925008221753103372}
   - component: {fileID: 1863480648030355741}
   - component: {fileID: 1565456168124204056}
-  - component: {fileID: 5049669913200909118}
-  - component: {fileID: 7800274044362162768}
   - component: {fileID: -8289706053287190552}
+  - component: {fileID: 8148183962130153256}
   m_Layer: 10
   m_Name: Enemy2
   m_TagString: Enemy
@@ -163,35 +162,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5049669913200909118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366539882291354084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9223d18a1abb94e45be89a8b2af33d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  playerAwarenessDistance: 10
-  direction: {x: 0, y: 0}
-  targetDirection: {x: 0, y: 0}
---- !u!114 &7800274044362162768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1366539882291354084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be1ad5d957e59f54da0d5d2e064d5c49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10000
 --- !u!114 &-8289706053287190552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +176,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatingHealthBar: {fileID: 2614929557504734747}
   enemyHealthSO: {fileID: 11400000, guid: 7caa6d5e5321a424aa6de6bc479f3b9f, type: 2}
+--- !u!114 &8148183962130153256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366539882291354084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91550e2a95f28e4a80d62b38b9c661f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  playerAwarenessDistance: 10
+  damage: 200
+  direction: {x: 0, y: 0}
+  targetDirection: {x: 0, y: 0}
 --- !u!1 &1963499029221584288
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 namespace DungTran31.GamePlay.Enemy
 {
@@ -44,11 +45,11 @@ namespace DungTran31.GamePlay.Enemy
         {
             if (isDashing)
             {
-                DashTowardsPlayer();
+                // DashTowardsPlayer is now handled by DOTween
             }
             else if (isReturning)
             {
-                ReturnToAttackStartPosition();
+                // ReturnToAttackStartPosition is now handled by DOTween
             }
             else if (target && Vector2.Distance(transform.position, target.position) <= dashDistance)
             {
@@ -58,43 +59,40 @@ namespace DungTran31.GamePlay.Enemy
 
         private void GetTarget()
         {
-            if (target != null)
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
             {
-                target = GameObject.FindGameObjectWithTag("Player").transform;
+                target = player.transform;
             }
         }
 
         private void StartDash()
         {
+            if (target == null) return; // Ensure target is not null before starting the dash
+
             isDashing = true;
             attackStartPosition = transform.position; // Store the position where the boss starts the attack
+            DashTowardsPlayer();
         }
 
         private void DashTowardsPlayer()
         {
-            MoveTowards(target.position);
-
-            if (Vector2.Distance(transform.position, target.position) <= 0.1f)
+            transform.DOMove(target.position, dashSpeed).SetSpeedBased(true).OnComplete(() =>
             {
                 isDashing = false;
                 isReturning = true;
                 cooldownTimer = attackCooldown;
-            }
+                ReturnToAttackStartPosition();
+            });
         }
 
         private void ReturnToAttackStartPosition()
         {
-            MoveTowards(attackStartPosition);
-
-            if (Vector2.Distance(transform.position, attackStartPosition) <= 0.1f)
+            transform.DOMove(attackStartPosition, dashSpeed).SetSpeedBased(true).OnComplete(() =>
             {
                 isReturning = false;
-            }
-        }
-
-        private void MoveTowards(Vector2 targetPosition)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, dashSpeed * Time.deltaTime);
+                hasCollided = false; // Reset the collision flag when the boss returns to the start position
+            });
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

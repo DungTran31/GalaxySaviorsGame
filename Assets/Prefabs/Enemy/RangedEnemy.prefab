@@ -325,9 +325,8 @@ GameObject:
   - component: {fileID: 1873786978029266307}
   - component: {fileID: 922727544253929111}
   - component: {fileID: 1842195531347408479}
-  - component: {fileID: 8038996494186575835}
-  - component: {fileID: 1393871820325514795}
   - component: {fileID: -3906622903128549390}
+  - component: {fileID: 6850833898229345076}
   m_Layer: 10
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -477,38 +476,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8038996494186575835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561002580234321768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b6a192201066994ea5caf963362c30b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathEffect: {fileID: 652696773238104938, guid: 9dc7d974086de214eb47c55f3defde72, type: 3}
-  firingPoint: {fileID: 3808557436156970759}
-  distanceToShoot: 20
-  fireRate: 2
-  _orbitRadius: 2
---- !u!114 &1393871820325514795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5561002580234321768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e85ab4e3ddf0c54bbb896b30879a6e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  playerAwarenessDistance: 20
-  distanceToStop: 10
 --- !u!114 &-3906622903128549390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +490,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatingHealthBar: {fileID: 7530104145887199394}
   enemyHealthSO: {fileID: 11400000, guid: 10f092dc61111c34ab7c94bcc69fac95, type: 2}
+--- !u!114 &6850833898229345076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5561002580234321768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b571af4c3f801844809e0581b63473c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  playerAwarenessDistance: 10
+  distanceToStop: 5
+  deathEffect: {fileID: 459294908763368975, guid: 0a35a0d4bd1afb743a4536de694b3f10, type: 3}
+  firingPoint: {fileID: 3808557436156970759}
+  distanceToShoot: 10
+  fireRate: 0.5
+  orbitRadius: 5
 --- !u!1 &7271291454932230158
 GameObject:
   m_ObjectHideFlags: 0
