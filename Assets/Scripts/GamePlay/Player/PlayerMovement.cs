@@ -1,3 +1,4 @@
+using DungTran31.Core;
 using System.Collections;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace DungTran31.GamePlay.Player
         [SerializeField] private TrailRenderer trailRenderer;
         [SerializeField] private GameObject dashEffect;
         [SerializeField] private float rotationSpeed = 25f;
-        [SerializeField] private float moveSpeed = 10f;
+        [SerializeField] internal float moveSpeed = 10f;
         [SerializeField] private float dashSpeed = 50f;
         [SerializeField] private float startDashTime = 0.1f;
         [SerializeField] private float dashCooldown = 1f; 
@@ -31,7 +32,8 @@ namespace DungTran31.GamePlay.Player
 
         private void Update()
         {
-            if(Dialogues.DialogueManager.Instance.DialogueIsPlaying) return;
+            if (UIManager.IsGamePaused) return;
+            if (Dialogues.DialogueManager.Instance.DialogueIsPlaying) return;
 
             SetPlayerVelocity();
             //PreventPlayerGoingOffScreen();

@@ -1,3 +1,4 @@
+using DungTran31.Core;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -33,6 +34,15 @@ namespace DungTran31.GamePlay.Player
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
+                Time.timeScale = 0;
+                if (UIManager.Instance != null)
+                {
+                    UIManager.Instance.ChangeGameOverScreenState(true);
+                }
+                else
+                {
+                    Debug.LogError("UIManager.Instance is null. Ensure UIManager is properly initialized.");
+                }
             }
             else
             {
@@ -54,6 +64,23 @@ namespace DungTran31.GamePlay.Player
         {
             MaxHealth += Mathf.RoundToInt(MaxHealth * (percentage / 100f));
             CurrentHealth = MaxHealth; // optional: heal the player to full health
+        }
+
+        public void ApplySlow(float slowPercentage, float duration)
+        {
+            StartCoroutine(SlowEffect(slowPercentage, duration));
+        }
+
+        private IEnumerator SlowEffect(float slowPercentage, float duration)
+        {
+            // Assuming the player has a movement script with a speed variable
+            if (TryGetComponent<PlayerMovement>(out var playerMovement))
+            {
+                float originalSpeed = playerMovement.moveSpeed;
+                playerMovement.moveSpeed *= (1 - slowPercentage / 100f);
+                yield return new WaitForSeconds(duration);
+                playerMovement.moveSpeed = originalSpeed;
+            }
         }
 
         private IEnumerator Invunerability()
@@ -80,5 +107,3 @@ namespace DungTran31.GamePlay.Player
         }
     }
 }
-
-

@@ -24,7 +24,7 @@ namespace DungTran31.Utilities
 
             foreach (Pool pool in pools)
             {
-                Queue<GameObject> objectPool = new Queue<GameObject>();
+                Queue<GameObject> objectPool = new();
 
                 for (int i = 0; i < pool.size; i++)
                 {

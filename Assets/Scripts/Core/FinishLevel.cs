@@ -1,3 +1,4 @@
+using DungTran31.Dialogues;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,14 +6,16 @@ namespace DungTran31.Core
 {
     public class FinishLevel : MonoBehaviour
     {
-        private void OnTriggerEnter2D(Collider2D other)
+        private void Update()
         {
-            if (other.CompareTag("Player"))
+            if (!DialogueManager.Instance.DialogueIsPlaying
+                && DialogueManager.Instance.DialogueCount == 0)
             {
                 UnlockNewLevel();
                 SceneController.Instance.NextLevel(SceneManager.GetActiveScene().buildIndex + 1);
-            }
+            }    
         }
+
 
         private void UnlockNewLevel()
         {

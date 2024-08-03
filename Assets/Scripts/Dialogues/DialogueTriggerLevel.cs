@@ -5,7 +5,7 @@ using DungTran31.UI;
 
 namespace DungTran31.Dialogues
 {
-    public class DialogueTriggerLevel1 : MonoBehaviour
+    public class DialogueTriggerLevel : MonoBehaviour
     {
         [Header("Ink JSON")]
         [SerializeField] private TextAsset inkJSON;

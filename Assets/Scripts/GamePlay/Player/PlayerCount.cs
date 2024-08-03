@@ -9,7 +9,6 @@ namespace DungTran31.GamePlay.Player
         [SerializeField] private TextMeshProUGUI killRemainingCountText;
         [SerializeField] private GameObject bossPrefab;
         [SerializeField] private int targetKillCount;
-        [SerializeField] private PlayerBall playerBall;
 
         public int KillCount { get; private set; }
         private bool bossSpawned = false;
@@ -49,18 +48,8 @@ namespace DungTran31.GamePlay.Player
                         Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
                         bossSpawned = true;
                     }
-                    ActivatePlayerBall(); // Activate the player ball
                 }
                 killRemainingCountText.text = remainingKillCount.ToString();
-            }
-        }
-
-        private void ActivatePlayerBall()
-        {
-            if (playerBall != null)
-            {
-                playerBall.gameObject.SetActive(true);
-                playerBall.ActivatePlayerBall();
             }
         }
     }

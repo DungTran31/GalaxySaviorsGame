@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: -8675861
   m_SortingLayer: 6
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1687717375, guid: 2e191410a7bb047438ffedae8cdb3440, type: 3}
+  m_Sprite: {fileID: 250696447, guid: 7592a002fd5ee3c48a957ee43fcb9751, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -229,7 +229,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 1.0625}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.34375, y: 0.21875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   floatingTextPrefab: {fileID: 3162044731848583576, guid: fe82445335032f944b0bcfc823b07262, type: 3}
   bloodEffect: {fileID: 6525560416825447839, guid: 5c60b8c7c5604ec47a5cd1c2b7066902, type: 3}
   bloodSplash: {fileID: 6525560416825447839, guid: f68e1b5498fcdf7438a213acd3b4bc65, type: 3}
-  maxHealth: 10000
+  maxHealth: 1000
   poisonDuration: 5
   poisonTickTime: 1
   freezeDuration: 3
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Megalith Golem
+  m_text: Mama Slime
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a824483503ce3d14f93ac1d68e93eb50, type: 2}
   m_sharedMaterial: {fileID: -3384989530974130051, guid: a824483503ce3d14f93ac1d68e93eb50, type: 2}
@@ -427,8 +427,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

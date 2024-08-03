@@ -1,3 +1,4 @@
+using DungTran31.Core;
 using UnityEngine;
 
 namespace DungTran31.GamePlay.Enemy
@@ -34,6 +35,7 @@ namespace DungTran31.GamePlay.Enemy
 
         private void Update()
         {
+            if (UIManager.IsGamePaused) return;
             if (Dialogues.DialogueManager.Instance.DialogueIsPlaying) return;
             if (target != null)
                 AwarePlayerDistance();
@@ -42,6 +44,8 @@ namespace DungTran31.GamePlay.Enemy
 
         private void AwarePlayerDistance()
         {
+            if (target == null) return; // Add null check
+
             Vector2 directionTemp = (target.position - transform.position);
             direction = directionTemp.normalized;
 
@@ -110,6 +114,8 @@ namespace DungTran31.GamePlay.Enemy
 
         private void Chase()
         {
+            if (target == null) return; // Add null check
+
             // Chase behavior implementation
             if (Vector2.Distance(transform.position, target.position) <= 1f) // Example attack range
             {
@@ -144,7 +150,10 @@ namespace DungTran31.GamePlay.Enemy
         {
             if (collision.gameObject.CompareTag("Player") && !hasCollided)
             {
-                collision.gameObject.GetComponent<Player.PlayerHealth>().TakeDamage(damage);
+                if (collision.TryGetComponent<Player.PlayerHealth>(out var playerHealth))
+                {
+                    playerHealth.TakeDamage(damage);
+                }
                 target = null;
                 hasCollided = true; // Set the flag to true after processing the collision
                 state = EnemyState.Roaming; // Transition back to Roaming state after attack

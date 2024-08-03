@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace DungTran31.Core
 {
-    public class AudioManager : SingletonPersistent<AudioManager>
+    public class AudioManager : Singleton<AudioManager>
     {
         [Header("Audio Source")]
         [SerializeField] internal AudioSource musicSource;
@@ -19,7 +19,10 @@ namespace DungTran31.Core
         private void Start()
         {
             musicSource.clip = background;
-            musicSource.Play();
+            if (!SceneManager.GetActiveScene().name.StartsWith("PreLevel"))
+            {
+                musicSource.Play();
+            }
         }
 
         public void PlaySfx(AudioClip clip)
@@ -29,21 +32,17 @@ namespace DungTran31.Core
 
         private void Update()
         {
-            if (SceneManager.GetActiveScene().name.StartsWith("PreLevel"))
+            // Add null check for DialogueManager.Instance
+            if (Dialogues.DialogueManager.Instance != null)
             {
-                musicSource.Pause();
-            }
-            else
-            {
-                musicSource.UnPause();
-            }
-            if (Dialogues.DialogueManager.Instance.DialogueIsPlaying)
-            {
-                musicSource.Pause();
-            }
-            else
-            {
-                musicSource.UnPause();
+                if (Dialogues.DialogueManager.Instance.DialogueIsPlaying)
+                {
+                    musicSource.Pause();
+                }
+                else
+                {
+                    musicSource.UnPause();
+                }
             }
         }
     }
