@@ -51,6 +51,7 @@ namespace DungTran31.GamePlay.Player
             if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldownTimer <= 0)
             {
                 Instantiate(dashEffect, transform.position, Quaternion.identity);
+                AudioManager.Instance.PlaySfx(AudioManager.Instance.dash);
                 dashDirection = 1;
                 dashTime = startDashTime; // Reset dashTime
                 dashCooldownTimer = dashCooldown; // Reset the cooldown timer

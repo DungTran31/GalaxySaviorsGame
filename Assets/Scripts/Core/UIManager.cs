@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.EventSystems;
+using DungTran31.UI;
 
 namespace DungTran31.Core
 {
@@ -17,12 +18,14 @@ namespace DungTran31.Core
         [SerializeField] private InputActionAsset uiInputActions;
 
         private InputSystemUIInputModule inputModule;
+        private MouseCursor mouseCursor;
 
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
+                DontDestroyOnLoad(gameObject); // Ensure UIManager persists across scenes
             }
             else if (Instance != this)
             {
@@ -35,6 +38,7 @@ namespace DungTran31.Core
             IsGamePaused = false;
 
             InitializeInputModule();
+            mouseCursor = FindObjectOfType<MouseCursor>();
         }
 
         private void InitializeInputModule()
@@ -57,6 +61,15 @@ namespace DungTran31.Core
             pauseScreen.SetActive(IsGamePaused);
             Time.timeScale = IsGamePaused ? 0 : 1;
             SwitchInputActions(IsGamePaused ? uiInputActions : gameplayInputActions);
+
+            if (IsGamePaused)
+            {
+                mouseCursor.SetDefaultCursor();
+            }
+            else
+            {
+                mouseCursor.SetAimCursor();
+            }
         }
 
         public void ChangeGameOverScreenState(bool state)
@@ -65,19 +78,20 @@ namespace DungTran31.Core
             if (state)
             {
                 Time.timeScale = 0;
-                print("Triggered");
                 SwitchInputActions(uiInputActions);
+                mouseCursor.SetDefaultCursor();
             }
             else
             {
                 Time.timeScale = 1;
-                print("Triggered");
                 SwitchInputActions(gameplayInputActions);
+                mouseCursor.SetAimCursor();
             }
         }
 
         public void RestartGame()
         {
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
             Time.timeScale = 1;
             SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reloads the current scene
@@ -88,6 +102,11 @@ namespace DungTran31.Core
             SceneManager.sceneLoaded -= OnSceneLoaded;
             InitializeInputModule();
             SwitchInputActions(gameplayInputActions);
+        }
+
+        public void MainMenu()
+        {
+            SceneController.Instance.NextLevel(0);
         }
 
         public void Quit()

@@ -12,15 +12,8 @@ namespace DungTran31.GamePlay.Player
         
         private void Start()
         {
-            if (ChangingSkin.Instance != null)
-            {
-                int currentSkin = ChangingSkin.Instance.GetCurrentSkin();
-                UpdateSkin(currentSkin);
-            }
-            else
-            {
-                Debug.Log("ChangingSkin instance is not initialized.");
-            }
+            int currentSkin = PlayerPrefs.GetInt("SelectedSkin");
+            UpdateSkin(currentSkin);
         }
 
         private void UpdateSkin(int skin)

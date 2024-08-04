@@ -1,3 +1,4 @@
+using DungTran31.Core;
 using DungTran31.GamePlay.Enemy;
 using TMPro;
 using UnityEngine;
@@ -46,6 +47,7 @@ namespace DungTran31.GamePlay.Player
                     {
                         // Spawn the boss when the player reaches the target kill count
                         Instantiate(bossPrefab, Vector3.zero, Quaternion.identity);
+                        AudioManager.Instance.ChangeMusic(AudioManager.Instance.bossBackground);
                         bossSpawned = true;
                     }
                 }

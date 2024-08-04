@@ -1,6 +1,10 @@
 INCLUDE globals.ink
+{ player_nickname == "":
+    ~ player_nickname = "The Savior"
+}
+->boss_defeat_scene2
 === boss_defeat_scene2 ===
-The final blow lands, and the dark entity that has plagued the galaxy for so long collapses before you. The fortress trembles as the dark energy that once fueled it begins to dissipate. You stand tall, {player_nickname}, the weight of your victory settling in. #speaker:Narrator #layout:left #audio:1_3_raw
+The final blow lands, and the dark entity that has plagued the galaxy for so long collapses before you. The fortress trembles as the dark energy that once fueled it begins to dissipate. You stand tall, <b><color=\#FFDF00>{player_nickname}</color></b>, the weight of your victory settling in. #speaker:Narrator #layout:left #audio:1_3_raw
 The ground beneath you begins to crumble as the fortress starts to collapse. You rush to your ship, the sounds of destruction echoing all around. #speaker:Narrator #layout:left #audio:1_3_raw
 + [Make a quick escape.]
     You run to the ship, your heart pounding as the structure around you starts to fall apart. You barely make it inside before the entire fortress collapses into a heap of rubble. #speaker:Narrator #layout:left #audio:1_3_raw

@@ -12,8 +12,12 @@ namespace DungTran31.Core
 
         [Header("Audio Clip")]
         public AudioClip background;
+        public AudioClip bossBackground;
         public AudioClip death;
-        public AudioClip score;
+        public AudioClip enemyDeath;
+        public AudioClip shoot;
+        public AudioClip dash;
+        public AudioClip switched;
         public AudioClip pressed;
 
         private void Start()
@@ -25,6 +29,12 @@ namespace DungTran31.Core
             }
         }
 
+        public void ChangeMusic(AudioClip clip)
+        {
+            musicSource.clip = bossBackground;
+            musicSource.Play();
+        }
+        
         public void PlaySfx(AudioClip clip)
         {
             sfxSource.PlayOneShot(clip);

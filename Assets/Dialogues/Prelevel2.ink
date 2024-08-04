@@ -1,9 +1,12 @@
 INCLUDE globals.ink
-{ player_nickname == "": -> END | -> before_red_planet }
+{ player_nickname == "":
+    ~ player_nickname = "The Savior"
+}
+->before_red_planet
 === before_red_planet ===
 The stars blur past your ship as you make your way to the final destination – a planet shrouded in mystery and darkness, known only as **Eclipse**. The journey has been long, and the weight of your previous battles hangs heavy on your shoulders. But you know this is the endgame; all paths have led you here. #speaker:Narrator #layout:left #audio:1_3_raw
 
-Your navigator's voice breaks the silence. "We're approaching Eclipse, {player_nickname}. The sensors are picking up strange energy signatures. This place… it’s unlike anything we've seen before." 
+Your navigator's voice breaks the silence. "We're approaching Eclipse, <b><color=\#FFDF00>{player_nickname}</color></b>. The sensors are picking up strange energy signatures. This place… it’s unlike anything we've seen before." 
 + [Steady the course]
     "Stay the course," you reply, your voice firm. "We’ve come too far to turn back now." 
     -> approaching_eclipse

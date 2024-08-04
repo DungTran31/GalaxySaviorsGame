@@ -75,6 +75,15 @@ namespace DungTran31.Core
             DissolveMainMenu.Instance.SetAppear();
         }
 
+        public void Quit()
+        {
+            Application.Quit(); // Quits the game (only works in build)
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false; // Exits play mode
+#endif
+        }
+
         private void SetActiveAllCubes(bool active)
         {
             foreach (var cube in cubes)

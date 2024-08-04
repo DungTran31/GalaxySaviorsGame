@@ -1,11 +1,14 @@
 INCLUDE globals.ink
-
+{ player_nickname == "":
+    ~ player_nickname = "The Savior"
+}
+->boss_defeat_scene3
 === boss_defeat_scene3 ===
 The Red Planet trembles as the massive Guardian of Flame falls before you, its fiery core dimming as it takes its final breath. The sky, once filled with swirling embers, begins to clear, revealing a deep, blood-red horizon. #speaker:Narrator #layout:left #audio:1_3_raw
 
 The remaining inhabitants, who had been hiding from the chaos, slowly emerge from their shelters. They approach you cautiously, their eyes wide with a mixture of fear and awe. One of them, an elder with a voice like crackling fire, steps forward. #speaker:Narrator #layout:left #audio:1_3_raw
 
-"Once again, you have proven your strength, {player_nickname}. Our world is free from the chains of destruction, thanks to you," the elder says, bowing deeply. "What will you do now, great warrior?" #speaker:Narrator #layout:left #audio:1_3_raw
+"Once again, you have proven your strength, <b><color=\#FFDF00>{player_nickname}</color></b>. Our world is free from the chains of destruction, thanks to you," the elder says, bowing deeply. "What will you do now, great warrior?" #speaker:Narrator #layout:left #audio:1_3_raw
 
 + [We must rebuild this planet.]
     You look around at the ruined landscape. "This world has suffered enough. We must begin the process of rebuilding, ensuring that it never faces such terror again."

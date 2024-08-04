@@ -1,6 +1,7 @@
 using UnityEngine;
 using DungTran31.Utilities;
 using DungTran31.UI;
+using DungTran31.Core;
 
 namespace DungTran31.GamePlay.Player
 {
@@ -28,6 +29,7 @@ namespace DungTran31.GamePlay.Player
 
             if (Input.GetKeyDown(KeyCode.Space) && fireTimer <= 0f)
             {
+                AudioManager.Instance.PlaySfx(AudioManager.Instance.shoot);
                 Shoot();
                 fireTimer = fireRate;
             }
@@ -66,6 +68,7 @@ namespace DungTran31.GamePlay.Player
 
         private void SwitchBulletType(bool forward)
         {
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.switched);
             int bulletTypeCount = System.Enum.GetValues(typeof(BulletType)).Length;
             currentBulletType = (BulletType)(((int)currentBulletType + (forward ? 1 : -1) + bulletTypeCount) % bulletTypeCount);
             UpdateBulletTypeUI();

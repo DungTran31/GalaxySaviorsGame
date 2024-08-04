@@ -1,5 +1,8 @@
 INCLUDE globals.ink
-{ player_nickname == "": -> END | -> before_last_planet }
+{ player_nickname == "":
+    ~ player_nickname = "The Savior"
+}
+->before_last_planet
 === before_last_planet ===
 With Megalith Golem defeated, you prepare to leave this planet behind. The people wave goodbye, their faces a mix of sadness and hope. As you board your ship, you can see the devastation that once plagued this world starting to heal. #speaker:Narrator #layout:left #audio:1_3_raw
 

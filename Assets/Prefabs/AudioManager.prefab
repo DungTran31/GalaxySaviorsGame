@@ -304,7 +304,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 6929452760793387843}
   sfxSource: {fileID: 1254109734497551518}
-  background: {fileID: 8300000, guid: 4e97a8e645044ec4493c34b70c9f44ef, type: 3}
-  death: {fileID: 0}
-  score: {fileID: 0}
+  background: {fileID: 8300000, guid: c3e90fec6d504364a97083c738a3af50, type: 3}
+  bossBackground: {fileID: 8300000, guid: 489c7664cbb7acb4ca95421a3acc3f16, type: 3}
+  death: {fileID: 8300000, guid: 4fce60d7795a5c347bfa940038c52073, type: 3}
+  enemyDeath: {fileID: 8300000, guid: 4fce60d7795a5c347bfa940038c52073, type: 3}
+  shoot: {fileID: 8300000, guid: 8abb7be30194ee94aa95a933609517cf, type: 3}
+  dash: {fileID: 8300000, guid: 8dfb3a187861dde4f970a85199ac3f5e, type: 3}
+  switched: {fileID: 8300000, guid: bb83908f6fb200b4c958f24aeea25e43, type: 3}
   pressed: {fileID: 8300000, guid: 19d8c23c224935e49b11835007566625, type: 3}

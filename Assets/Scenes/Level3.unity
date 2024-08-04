@@ -433,6 +433,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 147805404}
     m_Modifications:
+    - target: {fileID: 271785691374173891, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
+      propertyPath: m_Name
+      value: MainMenuButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2432379221871408584, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -447,7 +451,11 @@ PrefabInstance:
       objectReference: {fileID: 147805405}
     - target: {fileID: 2782293934944814465, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Quit
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400725855361718974, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
+      propertyPath: m_text
+      value: MAIN MENU
       objectReference: {fileID: 0}
     - target: {fileID: 4662726226642094572, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
       propertyPath: m_Name
@@ -542,7 +550,11 @@ PrefabInstance:
       value: ChangeGameOverScreenState
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 989874073813609402, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
+    - {fileID: 4692082836738068134, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
+    - {fileID: 4659480819339180042, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
+    - {fileID: 5505251636475870567, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b487a5ba6a4058d4e87ebfdbbbc7e7f3, type: 3}
@@ -627,7 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killRemainingCountText: {fileID: 1619079139}
   bossPrefab: {fileID: 1366539882291354084, guid: 67f599626da0f5741987ff4d0eee7775, type: 3}
-  targetKillCount: 10
+  targetKillCount: 50
 --- !u!4 &230785730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5781595981742059112, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
@@ -1631,6 +1643,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1657847798}
     m_Modifications:
+    - target: {fileID: 2760905003223407813, guid: a297ff0402b1a1d439e49c7f88eb275f, type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 8300000, guid: cfc9e964e406e3f4ead393526b08f0b3, type: 3}
     - target: {fileID: 5749895274755675936, guid: a297ff0402b1a1d439e49c7f88eb275f, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -3111,7 +3127,7 @@ PrefabInstance:
       objectReference: {fileID: 147805405}
     - target: {fileID: 676340783396846129, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Quit
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1686308394275638272, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3133,6 +3149,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetSFXVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 5036677237328489730, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
+      propertyPath: m_Name
+      value: MainMenuButton
+      objectReference: {fileID: 0}
     - target: {fileID: 5429406041668989656, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3140,6 +3160,10 @@ PrefabInstance:
     - target: {fileID: 5429406041668989656, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TogglePause
+      objectReference: {fileID: 0}
+    - target: {fileID: 5915437347257268663, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
+      propertyPath: m_text
+      value: MAIN MENU
       objectReference: {fileID: 0}
     - target: {fileID: 7080830129025437119, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
       propertyPath: m_Pivot.x
@@ -3230,7 +3254,11 @@ PrefabInstance:
       value: SetMusicVolume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5793415535165865909, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
+    - {fileID: 1011808804660338741, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
+    - {fileID: 2815635408807962530, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
+    - {fileID: 3686324269328081140, guid: de0a813626bf2a243a081a3f0723f506, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de0a813626bf2a243a081a3f0723f506, type: 3}

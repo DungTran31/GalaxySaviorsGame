@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace DungTran31.UI
 {
-    public class ChangingSkin : SingletonPersistent<ChangingSkin>
+    public class ChangingSkin : MonoBehaviour
     {
         [SerializeField] private Image squareHeadDisplay;
         [SerializeField] private Sprite sprite1;
@@ -12,11 +12,9 @@ namespace DungTran31.UI
         [SerializeField] private Sprite sprite3;
         private int whatSkin = 1;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
             whatSkin = PlayerPrefs.GetInt("SelectedSkin", 1);
-            UpdateSkin();
         }
 
         public void ChangeSkin(int skinNumber)

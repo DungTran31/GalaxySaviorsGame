@@ -1,3 +1,4 @@
+using DungTran31.Core;
 using DungTran31.UI;
 using System;
 using System.Collections;
@@ -77,6 +78,7 @@ namespace DungTran31.GamePlay.Enemy
             {
                 Instantiate(bloodEffect, transform.position, Quaternion.identity);
                 Instantiate(bloodSplash, transform.position, Quaternion.identity);
+                AudioManager.Instance.PlaySfx(AudioManager.Instance.enemyDeath);
                 OnBossDeath?.Invoke(new BossDeathEventArgs(transform.position));
                 gameObject.SetActive(false);
             }

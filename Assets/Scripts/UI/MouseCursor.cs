@@ -23,11 +23,11 @@ namespace DungTran31.UI
         {
             if (scene.name.StartsWith("Level"))
             {
-                Cursor.SetCursor(aimCursor, cursorHotspot, CursorMode.Auto);
+                SetAimCursor();
             }
             else
             {
-                Cursor.SetCursor(defaultCursor, cursorHotspot, CursorMode.Auto);
+                SetDefaultCursor();
             }
         }
 
@@ -35,6 +35,16 @@ namespace DungTran31.UI
         {
             // Set the initial cursor
             OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+        }
+
+        public void SetDefaultCursor()
+        {
+            Cursor.SetCursor(defaultCursor, cursorHotspot, CursorMode.Auto);
+        }
+
+        public void SetAimCursor()
+        {
+            Cursor.SetCursor(aimCursor, cursorHotspot, CursorMode.Auto);
         }
     }
 }

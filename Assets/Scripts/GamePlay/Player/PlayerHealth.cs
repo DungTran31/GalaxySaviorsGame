@@ -33,6 +33,7 @@ namespace DungTran31.GamePlay.Player
             if (CurrentHealth <= 0)
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
+                AudioManager.Instance.PlaySfx(AudioManager.Instance.death);
                 Destroy(gameObject);
                 Time.timeScale = 0;
                 if (UIManager.Instance != null)

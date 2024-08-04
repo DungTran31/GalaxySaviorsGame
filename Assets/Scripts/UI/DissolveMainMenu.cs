@@ -20,11 +20,13 @@ namespace DungTran31.UI
         public void SetAppear()
         {
             _isAppearing = true;
+            _isVanishing = false;
         }
         
         public void SetVanish()
         {
-            _isAppearing = true;
+            _isAppearing = false;
+            _isVanishing = true;
         }
 
         private void Update()

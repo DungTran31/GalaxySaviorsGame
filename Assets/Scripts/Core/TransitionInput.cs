@@ -8,7 +8,7 @@ namespace DungTran31.Core
     {
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Return)
+            if(Input.GetKeyDown(KeyCode.Space)
                 && !DialogueManager.Instance.DialogueIsPlaying 
                 && DialogueManager.Instance.DialogueCount == 0)
             {
