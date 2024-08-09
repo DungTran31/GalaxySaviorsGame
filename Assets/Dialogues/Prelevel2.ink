@@ -42,5 +42,4 @@ The planet looms large before you now, a swirling mass of shadow and light. As y
 "Bring us down," you command. #speaker:Player #portrait:ghost #layout:right #audio:high
 
 The ship descends, breaking through the thick atmosphere of Eclipse. The landscape below is a desolate wasteland, but at the center of it all, a massive fortress rises from the ground, glowing with an eerie light. This is where the final battle will take place. #speaker:Narrator #layout:left #audio:1_3_raw
-
 -> END

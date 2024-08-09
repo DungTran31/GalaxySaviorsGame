@@ -8,10 +8,10 @@ namespace DungTran31.UI
         [SerializeField] private Slider slider;
         [SerializeField] private Transform target;
         [SerializeField] private Vector3 offset;
-        private new Camera camera;
+        private Camera MainCamera;
         private void Start()
         {
-            camera = Camera.main;
+            MainCamera = Camera.main;
         }
 
         public void UpdateHealthBar(float currentValue, float maxValue)
@@ -23,7 +23,7 @@ namespace DungTran31.UI
         {
             if (target != null)
             {
-                transform.SetPositionAndRotation(target.position + offset, camera.transform.rotation);
+                transform.SetPositionAndRotation(target.position + offset, MainCamera.transform.rotation);
             }
         }
     }

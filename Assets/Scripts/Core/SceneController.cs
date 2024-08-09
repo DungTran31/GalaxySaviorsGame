@@ -24,7 +24,7 @@ namespace DungTran31.Core
             if (transition != null)
             {
                 transition.SetTrigger(Start);
-                yield return new WaitForSeconds(0.2f); // Adjust the wait time as needed
+                yield return new WaitForSeconds(1f); // Adjust the wait time as needed
                 SceneManager.LoadSceneAsync(sceneIndex);
             }
             else

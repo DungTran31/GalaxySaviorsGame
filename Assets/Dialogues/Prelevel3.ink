@@ -11,5 +11,4 @@ With Megalith Golem defeated, you prepare to leave this planet behind. The peopl
 You bring up the star map, the next destination glowing with an ominous red light. "We set course for the Red Planet," you reply. "There’s no time to waste." #speaker:Bro #portrait:ghost4 #layout:left #audio:low
 
 The ship lifts off, leaving the recovering planet behind as you set your sights on the next challenge. #speaker:Narrator #layout:left #audio:1_3_raw
-
 -> END

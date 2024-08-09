@@ -4,12 +4,12 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.EventSystems;
 using DungTran31.UI;
+using DungTran31.Utilities;
 
 namespace DungTran31.Core
 {
-    public class UIManager : MonoBehaviour
+    public class UIManager : Singleton<UIManager>
     {
-        public static UIManager Instance { get; private set; }
         public static bool IsGamePaused { get; private set; }
 
         [SerializeField] private GameObject pauseScreen;
@@ -20,19 +20,9 @@ namespace DungTran31.Core
         private InputSystemUIInputModule inputModule;
         private MouseCursor mouseCursor;
 
-        private void Awake()
+        protected override void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject); // Ensure UIManager persists across scenes
-            }
-            else if (Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
+            base.Awake();
             pauseScreen.SetActive(false);
             gameOverScreen.SetActive(false);
             IsGamePaused = false;
@@ -106,6 +96,7 @@ namespace DungTran31.Core
 
         public void MainMenu()
         {
+            Time.timeScale = 1;
             SceneController.Instance.NextLevel(0);
         }
 
