@@ -56,7 +56,7 @@ namespace DungTran31.UI
 
         private IEnumerator ControlCinematicBarsCoroutine(BossHealth.BossDeathEventArgs _)
         {
-            yield return new WaitForSeconds(5f); // Wait for 1 second before showing the bars
+            yield return new WaitForSeconds(3f); // Wait for 1 second before showing the bars
 
             Show(500, 1f);
             // Correctly using OrthographicSize for an orthographic camera

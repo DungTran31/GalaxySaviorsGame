@@ -8,6 +8,7 @@ namespace DungTran31.GamePlay.Player
 {
     public class PlayerExp : MonoBehaviour
     {
+        [SerializeField] private GameObject levelUpEffect;
         [SerializeField] private Image experienceBar; 
         [SerializeField] private TMP_Text levelText;
         [SerializeField] private TMP_Text experienceText;
@@ -39,6 +40,7 @@ namespace DungTran31.GamePlay.Player
         public void LevelUp()
         {
             level++;
+            Instantiate(levelUpEffect, transform.position, Quaternion.identity);
             CalculateRequireExp();
 
             // Assuming you have references set up

@@ -14,8 +14,6 @@ namespace DungTran31.Core
         public void NextLevel(int sceneIndex)
         {
             StartCoroutine(LoadLevel(sceneIndex));
-            if (AudioManager.Instance != null)
-                AudioManager.Instance.PlaySfx(AudioManager.Instance.pressed);
         }
 
         // Modified LoadLevel coroutine to accept a scene index

@@ -147,9 +147,9 @@ namespace DungTran31.Dialogues
         
         private IEnumerator ExitDialogueMode()
         {
-            DialogueCount--;
             yield return new WaitForSeconds(0.2f);
 
+            DialogueCount--;
             dialogueVariables.StopListening(currentStory);
             DialogueIsPlaying = false;
             dialoguePanel.SetActive(false);
@@ -190,6 +190,10 @@ namespace DungTran31.Dialogues
 
         private IEnumerator DisplayLine(string line)
         {
+            // Ensure text wrapping is enabled
+            dialogueText.enableWordWrapping = true;
+            dialogueText.overflowMode = TextOverflowModes.Overflow;
+
             // set the text to the full line, but set the visible characters to 0
             dialogueText.text = line;
             dialogueText.maxVisibleCharacters = 0;
@@ -235,6 +239,7 @@ namespace DungTran31.Dialogues
 
             canContinueToNextLine = true;
         }
+
 
         private void PlayDialogueSound(int currentDisplayedCharacterCount, char currentCharacter)
         {

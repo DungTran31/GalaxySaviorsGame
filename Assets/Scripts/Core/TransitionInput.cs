@@ -8,12 +8,11 @@ namespace DungTran31.Core
     {
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Space)
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 && !DialogueManager.Instance.DialogueIsPlaying 
-                && DialogueManager.Instance.DialogueCount == 0)
+                && DialogueManager.Instance.DialogueCount <= 0)
             {
-                if(SceneController.Instance != null)
-                    SceneController.Instance.NextLevel(SceneManager.GetActiveScene().buildIndex + 1);
+                SceneController.Instance.NextLevel(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
     }
