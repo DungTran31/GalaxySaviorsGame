@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 7775487813393259267}
   - component: {fileID: 6951717938991274933}
   - component: {fileID: 8882274182707076539}
+  - component: {fileID: 7340928864457494456}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -374,9 +375,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 652696773238104938, guid: 9dc7d974086de214eb47c55f3defde72, type: 3}
+  bleedEffect: {fileID: 0}
+  <MaxHealth>k__BackingField: 400
   iFrameDuration: 2
   numberOfFlashes: 3
   isInvulnerable: 0
+--- !u!114 &7340928864457494456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972782287427075158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 450f06cb0b478df46862db3fb6a6a881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUpEffect: {fileID: 8132561315114145399, guid: d1b8711fc93be564aa02d11f9129a926, type: 3}
+  experienceBar: {fileID: 0}
+  levelText: {fileID: 0}
+  experienceText: {fileID: 0}
+  levelConfig: {fileID: 11400000, guid: 14617af24bbb5bf4dac97e1334465c3d, type: 2}
+  playerHealth: {fileID: 8882274182707076539}
+  playerMovement: {fileID: 7775487813393259267}
+  fireBulletSO: {fileID: 11400000, guid: d47d21adb1a4d4a41a457b7b087f900c, type: 2}
+  iceBulletSO: {fileID: 11400000, guid: 54ae530644f761041bd6ae251fc33b13, type: 2}
+  blackBulletSO: {fileID: 11400000, guid: 2cab7820fa05f2643b0aaab0244afae4, type: 2}
+  poisonBulletSO: {fileID: 11400000, guid: 983cd8ccf8b7fab48b6db5115fbd0da1, type: 2}
+  level: 1
+  experience: 0
 --- !u!1 &2180810076427978374
 GameObject:
   m_ObjectHideFlags: 0

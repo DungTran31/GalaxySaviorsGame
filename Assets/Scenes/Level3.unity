@@ -673,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450f06cb0b478df46862db3fb6a6a881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelUpEffect: {fileID: 0}
   experienceBar: {fileID: 546665381}
   levelText: {fileID: 1895810017}
   experienceText: {fileID: 649124246}
@@ -5198,6 +5199,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7340928864457494456, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 1895810017}
+    - target: {fileID: 7340928864457494456, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
+      propertyPath: experienceBar
+      value: 
+      objectReference: {fileID: 546665381}
+    - target: {fileID: 7340928864457494456, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
+      propertyPath: experienceText
+      value: 
+      objectReference: {fileID: 649124246}
     - target: {fileID: 7775487813393259267, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
       propertyPath: dashSpeed
       value: 50

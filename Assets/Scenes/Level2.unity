@@ -460,7 +460,7 @@ Transform:
   m_GameObject: {fileID: 143182835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -80, y: -75, z: 0}
+  m_LocalPosition: {x: -120, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -661,7 +661,7 @@ Transform:
   m_GameObject: {fileID: 178751065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50, y: -75, z: 0}
+  m_LocalPosition: {x: -75, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -748,7 +748,7 @@ Transform:
   m_GameObject: {fileID: 219237293}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80, y: -75, z: 0}
+  m_LocalPosition: {x: 120, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -784,41 +784,6 @@ TrailRenderer:
   m_CorrespondingSourceObject: {fileID: 1185900790678812208, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
   m_PrefabInstance: {fileID: 124276933578928989}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &230785735 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7775487813393259267, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
-  m_PrefabInstance: {fileID: 124276933578928989}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230785723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4518a57958b429040ae7d5aac46c9c42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &230785737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230785723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 450f06cb0b478df46862db3fb6a6a881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  experienceBar: {fileID: 546665381}
-  levelText: {fileID: 1895810017}
-  experienceText: {fileID: 649124246}
-  levelConfig: {fileID: 11400000, guid: 14617af24bbb5bf4dac97e1334465c3d, type: 2}
-  playerHealth: {fileID: 117053500}
-  playerMovement: {fileID: 230785735}
-  fireBulletSO: {fileID: 11400000, guid: d47d21adb1a4d4a41a457b7b087f900c, type: 2}
-  iceBulletSO: {fileID: 11400000, guid: 54ae530644f761041bd6ae251fc33b13, type: 2}
-  blackBulletSO: {fileID: 11400000, guid: 2cab7820fa05f2643b0aaab0244afae4, type: 2}
-  poisonBulletSO: {fileID: 11400000, guid: 983cd8ccf8b7fab48b6db5115fbd0da1, type: 2}
-  level: 1
-  experience: 0
 --- !u!114 &230785738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,7 +943,7 @@ Transform:
   m_GameObject: {fileID: 254140072}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: -75, z: 0}
+  m_LocalPosition: {x: -30, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1024,7 +989,7 @@ Transform:
   m_GameObject: {fileID: 268627523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: -75, z: 0}
+  m_LocalPosition: {x: 75, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1124,7 +1089,7 @@ Transform:
   m_GameObject: {fileID: 390697933}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: -75, z: 0}
+  m_LocalPosition: {x: 60, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1245,7 +1210,7 @@ Transform:
   m_GameObject: {fileID: 430933489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60, y: -75, z: 0}
+  m_LocalPosition: {x: 90, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2959,7 +2924,7 @@ Transform:
   m_GameObject: {fileID: 945741004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70, y: -75, z: 0}
+  m_LocalPosition: {x: 105, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3139,7 +3104,7 @@ Transform:
   m_GameObject: {fileID: 965084251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -75, z: 0}
+  m_LocalPosition: {x: -15, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3260,7 +3225,7 @@ Transform:
   m_GameObject: {fileID: 978482134}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70, y: -75, z: 0}
+  m_LocalPosition: {x: -105, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3381,7 +3346,7 @@ Transform:
   m_GameObject: {fileID: 992842417}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -75, z: 0}
+  m_LocalPosition: {x: 15, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3427,7 +3392,7 @@ Transform:
   m_GameObject: {fileID: 1020924831}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: -75, z: 0}
+  m_LocalPosition: {x: 30, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3751,7 +3716,7 @@ Transform:
   m_GameObject: {fileID: 1144914861}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40, y: -75, z: 0}
+  m_LocalPosition: {x: -60, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4476,7 +4441,7 @@ Transform:
   m_GameObject: {fileID: 1502045031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60, y: -75, z: 0}
+  m_LocalPosition: {x: -90, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4522,7 +4487,7 @@ Transform:
   m_GameObject: {fileID: 1505723732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: -75, z: 0}
+  m_LocalPosition: {x: 45, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5110,7 +5075,7 @@ Transform:
   m_GameObject: {fileID: 1834681407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: -75, z: 0}
+  m_LocalPosition: {x: -45, y: -75, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5898,6 +5863,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7340928864457494456, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 1895810017}
+    - target: {fileID: 7340928864457494456, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
+      propertyPath: experienceBar
+      value: 
+      objectReference: {fileID: 546665381}
+    - target: {fileID: 7340928864457494456, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
+      propertyPath: experienceText
+      value: 
+      objectReference: {fileID: 649124246}
     - target: {fileID: 7775487813393259267, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
       propertyPath: dashSpeed
       value: 50
@@ -5922,11 +5899,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 972782287427075158, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
-      insertIndex: -1
+      insertIndex: 8
       addedObject: {fileID: 230785724}
-    - targetCorrespondingSourceObject: {fileID: 972782287427075158, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 230785737}
     - targetCorrespondingSourceObject: {fileID: 972782287427075158, guid: c2d73d5c177e3d74781b5d8501c183f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 230785738}
