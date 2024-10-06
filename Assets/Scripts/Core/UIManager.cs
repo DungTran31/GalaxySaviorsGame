@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.UI;
 using UnityEngine.EventSystems;
 using DungTran31.UI;
 using DungTran31.Utilities;
+using DungTran31.GamePlay.Player.SO;
 
 namespace DungTran31.Core
 {
@@ -90,12 +91,22 @@ namespace DungTran31.Core
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
+            var bulletSOs = Resources.FindObjectsOfTypeAll<PlayerBulletSO>();
+            foreach (var bulletSO in bulletSOs)
+            {
+                bulletSO.ResetToOriginalValues();
+            }
             InitializeInputModule();
             SwitchInputActions(gameplayInputActions);
         }
 
         public void MainMenu()
         {
+            var bulletSOs = Resources.FindObjectsOfTypeAll<PlayerBulletSO>();
+            foreach (var bulletSO in bulletSOs)
+            {
+                bulletSO.ResetToOriginalValues();
+            }
             Time.timeScale = 1;
             SceneController.Instance.NextLevel(0);
         }

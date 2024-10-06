@@ -9,10 +9,22 @@ namespace DungTran31.GamePlay.Enemy
         [SerializeField] private GameObject fireTrapPrefab;
         [SerializeField] private float spawnInterval = 5f; // Interval between spawns
 
+        private Coroutine spawnCoroutine;
+
+        private void OnEnable()
+        {
+            BossHealth.OnBossDeath += HandleBossDeath;
+        }
+
+        private void OnDisable()
+        {
+            BossHealth.OnBossDeath -= HandleBossDeath;
+        }
+
         private void Start()
         {
             // Start the coroutine to spawn traps every 5 seconds
-            StartCoroutine(SpawnTrap());
+            spawnCoroutine = StartCoroutine(SpawnTrap());
         }
 
         private IEnumerator SpawnTrap()
@@ -24,6 +36,14 @@ namespace DungTran31.GamePlay.Enemy
 
                 // Wait for the specified interval before spawning the next trap
                 yield return new WaitForSeconds(spawnInterval);
+            }
+        }
+
+        private void HandleBossDeath(BossHealth.BossDeathEventArgs args)
+        {
+            if (spawnCoroutine != null)
+            {
+                StopCoroutine(spawnCoroutine);
             }
         }
     }

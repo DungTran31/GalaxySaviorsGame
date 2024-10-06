@@ -1169,6 +1169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Notification
       objectReference: {fileID: 0}
+    - target: {fileID: 6616035496471866546, guid: 7c8bbf7607994684a95ea64453860186, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1361770010, guid: 5b1711b2ac92b534d9eb15c826daff31, type: 3}
     - target: {fileID: 7124965385514379121, guid: 7c8bbf7607994684a95ea64453860186, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
