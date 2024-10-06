@@ -90,7 +90,7 @@ namespace DungTran31.GamePlay.Player
                 }
                 else if (collision.TryGetComponent<Enemy.BossHealth>(out Enemy.BossHealth bossHealth))
                 {
-                    bossHealth.TakeIceDamage(damage);
+                    bossHealth.TakeDamage(damage);
                 }
             }
             else if (collision.CompareTag("Border"))
